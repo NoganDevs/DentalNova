@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { Plus_Jakarta_Sans, Syne } from 'next/font/google';
-import LazySection from "./components/LazySection";
+
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -48,7 +48,7 @@ export default function ServicesHeaderSection() {
 
     
     <div className={`${plusJakarta.variable} ${syne.variable}`}>
-      <LazySection>
+       
       <section id="services" className="w-full overflow-hidden bg-[#f8faf8] px-5 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 font-[family-name:var(--font-plus-jakarta)] text-slate-900">
 
       
@@ -115,8 +115,8 @@ export default function ServicesHeaderSection() {
         </div>
 
       </section>
-          </LazySection>
-        <LazySection>
+           
+         
       {/* Continuation: Service 01 - Cosmetic Dentistry */}
 <section className="w-full bg-[#f8faf8] px-5 sm:px-8 md:px-16 lg:px-24 py-16 md:py-20 font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 border-t border-slate-200/60">
   <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
@@ -190,8 +190,8 @@ export default function ServicesHeaderSection() {
 
 
 </section>
-            </LazySection>
-        <LazySection>
+             
+         
       {/* Continuation: Service 02 - Precision Implant Restorations */}
 <section className="w-full bg-[#f8faf8] px-5 sm:px-8 md:px-16 lg:px-24 py-16 md:py-20 font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 border-t border-slate-200/60">
   <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
@@ -273,8 +273,8 @@ export default function ServicesHeaderSection() {
   </div>
 
 </section>
-            </LazySection>
-        <LazySection>
+             
+         
     {/* Service 03: Professional Enamel Whitening */}
 <section className="w-full bg-[#f8faf8] px-5 sm:px-8 md:px-16 lg:px-24 pt-16 md:pt-20 pb-16 font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 border-t border-slate-200/60">
   <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
@@ -388,7 +388,7 @@ export default function ServicesHeaderSection() {
     </motion.div>
 </motion.div>
 </section>
-  </LazySection>
+   
     </div>
         
   );
