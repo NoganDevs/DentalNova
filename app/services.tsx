@@ -123,18 +123,19 @@ export default function ServicesHeaderSection() {
   initial="hidden"
   whileInView="show"
   viewport={viewport}
-      className="w-full lg:w-1/2 transform-gpu will-change-transform"
+      className="w-full lg:w-1/2 transform-gpu will-change-transform"      
     >
       <motion.div
   {...cardHoverFx}
   className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-200"
 >
-        <Image
+       <Image
           src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1200&auto=format&fit=crop" 
           alt="Porcelain Veneers"
           className="w-full h-full object-cover object-center"
           width={800}
-  height={800}
+          height={800}
+          sizes="(max-width: 1024px) 100vw, 50vw"
         />
       </motion.div>
     </motion.div>
@@ -255,6 +256,7 @@ export default function ServicesHeaderSection() {
   width={800}
   height={800}
   className="w-full h-full object-contain object-center"
+    sizes="(max-width: 1024px) 100vw, 50vw"    
 />
 </motion.div>
     </motion.div>
@@ -285,7 +287,7 @@ export default function ServicesHeaderSection() {
           className="w-full h-full object-cover object-center"
           width={800}
   height={800}
-
+          sizes="(max-width: 1024px) 100vw, 50vw"
 
         />
       </motion.div>
