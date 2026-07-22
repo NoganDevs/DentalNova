@@ -69,12 +69,10 @@ export const fadeInUpVariants: Variants = {
   hidden: { 
     opacity: 0, 
     y: 32,
-    filter: 'blur(4px)',
   },
   visible: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: {
       duration: 1.1,
       ease: LUXURY_EASE,
