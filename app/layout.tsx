@@ -1,18 +1,9 @@
 // app/layout.tsx
-import { Plus_Jakarta_Sans, Instrument_Serif } from 'next/font/google';
+
 import { VisitorTracker } from './components/VisitorTracker';
 import React, { Suspense } from "react";
 
-const jakarta = Plus_Jakarta_Sans({ 
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
 
-const serif = Instrument_Serif({ 
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-serif',
-});
 
 
 
