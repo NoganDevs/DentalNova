@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Smooth luxury easing curve
-const EASE_CUBIC = [0.25, 1, 0.5, 1];
+const EASE_CUBIC = [0.25, 1, 0.5, 1] as const;
 
 interface FadeUpProps {
   children: React.ReactNode;
