@@ -1,11 +1,4 @@
-/* ==========================================================================
-   GLOBAL.CSS - Premium Clinical Light Theme Core
-   ========================================================================== */
 
-/* 1. High-Fashion Editorial Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap');
 
 /* Unified Tailwind v4 Engine Directive */
 @import "tailwindcss";
