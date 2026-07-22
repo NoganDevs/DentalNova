@@ -11,7 +11,7 @@
     import FooterContactSection from "./footer";
     import PlaceholderNotice from "./components/overlay";
     import Image from 'next/image';
-
+    import type { HTMLMotionProps } from "framer-motion";
     
     export default function Home() {
       const [isMobile, setIsMobile] = useState(false);
@@ -158,7 +158,7 @@ useEffect(() => {
       };
 
       // Button interaction configurations
-      const primaryButtonProps = {
+      const primaryButtonProps: HTMLMotionProps<"button"> = {
         whileHover: { 
           scale: 1.025, 
           y: -4, 
@@ -173,7 +173,7 @@ useEffect(() => {
         transition: { type: "spring", stiffness: 400, damping: 18 }
       };
 
-      const secondaryButtonProps = {
+      const secondaryButtonProps: HTMLMotionProps<"button"> = {
         whileHover: { 
           scale: 1.025, 
           y: -3, 
@@ -189,7 +189,7 @@ useEffect(() => {
       };
 
       // Stats card interactions
-      const statCardProps = {
+      const statCardProps: HTMLMotionProps<"div"> = {
         whileHover: { 
           scale: 1.05, 
           y: -5,
