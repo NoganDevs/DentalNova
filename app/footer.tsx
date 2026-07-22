@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import EnhancedForm from "./contact.tsx";
-import Footer from "./realfooter.tsx";
+import EnhancedForm from "./contact";
+import Footer from "./realfooter";
 
 
 import {
