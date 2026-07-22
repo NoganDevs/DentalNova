@@ -21,6 +21,9 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 
 import "./globals.css";
+import "./navbar.css";
+import "./hero.css";
+import "./responsive.css";
 
 const SITE_NAME = "DentalNova";
 const SITE_URL = "https://www.dentalnova.com"; // Replace
