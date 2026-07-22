@@ -70,7 +70,7 @@ export default function PlaceholderNotice() {
       filter: "blur(6px)",
       transition: { duration: 0.25, ease: [0.32, 0, 0.67, 0] },
     },
-  };
+  } as const;
 
   const wordVariants = {
     hidden: { opacity: 0, y: 8, filter: "blur(4px)" },
