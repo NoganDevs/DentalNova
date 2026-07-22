@@ -143,7 +143,7 @@ useEffect(() => {
 };
 
       // 3D tooth entry and exit animations
-      const toothSceneVariants = {
+      const toothSceneVariants: Variants = {
         hidden: { opacity: 0, scale: 0.6, rotateY: -35, rotateX: 15, z: -150 },
         visible: {
           opacity: 1,
@@ -152,7 +152,7 @@ useEffect(() => {
           rotateX: 0,
           z: 0,
           transition: {
-            type: "spring",
+            type: "spring" as const,
             stiffness: 60,
             damping: 15,
             mass: 1.2,
