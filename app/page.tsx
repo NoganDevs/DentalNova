@@ -7,9 +7,9 @@
     import ServicesHeaderSection from "./services";
     import OurPracticeHeader from "./our_practice";
     import DentalReviewsSection from "./reviews";
-    import CosmeticDentistryFAQ from "./faq.tsx";
-    import FooterContactSection from "./footer.tsx";
-    import PlaceholderNotice from "./components/overlay.tsx";
+    import CosmeticDentistryFAQ from "./faq";
+    import FooterContactSection from "./footer";
+    import PlaceholderNotice from "./components/overlay";
     import Image from 'next/image';
 
     
