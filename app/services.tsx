@@ -237,13 +237,12 @@ export default function ServicesHeaderSection() {
   className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-200"
 >
   <Image
-    src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop"
-    alt="Precision Dental Implants"
-    className="w-full h-full object-cover object-center"
-    width={800}
+  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop"
+  alt="Precision Dental Implants"
+  width={800}
   height={800}
-  className="object-contain"
-  />
+  className="w-full h-full object-contain object-center"
+/>
 </motion.div>
     </motion.div>
 
