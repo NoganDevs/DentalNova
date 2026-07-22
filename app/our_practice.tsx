@@ -8,6 +8,7 @@ import { Syne, Plus_Jakarta_Sans, Cormorant_Garamond } from 'next/font/google';
 import { ArrowUpRight, Sparkles, ShieldCheck, UserCheck, LucideIcon } from 'lucide-react';
 
 // 2. Motion variants imported strictly from your central animation file
+// 2. Motion variants imported strictly from your central animation file
 import {
   staggerContainerVariants,
   fadeInUpVariants,
@@ -18,6 +19,9 @@ import {
   v_doctorImageParallax,
   v_arrowMove,
   } from './lib/animations'; // Adjust relative path (e.g., '@/lib/animations' or '../lib/animations') if necessary
+import Image from 'next/image';
+
+const MotionImage = motion(Image);
 
 const syne = Syne({
   subsets: ['latin'],
@@ -263,12 +267,15 @@ export default function OurPracticeHeader() {
       />
 
       {/* Media Box: Parallax Image Container (Aspect Ratio 3:4) */}
+      {/* Media Box: Parallax Image Container (Aspect Ratio 3:4) */}
       <div className="relative w-full aspect-[3/4] overflow-hidden bg-neutral-100">
-        <motion.img
+        <MotionImage
           src={doctor.image}
           alt={doctor.name}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           variants={v_doctorImageParallax}
-          className="w-full h-full object-cover grayscale contrast-[1.02] group-hover:grayscale-0"
+          className="object-cover grayscale contrast-[1.02] group-hover:grayscale-0"
         />
 
         {/* Dynamic Vignette & Overlay */}
