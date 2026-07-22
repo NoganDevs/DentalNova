@@ -118,12 +118,11 @@ export default function ServicesHeaderSection() {
     {/* Left Column: Clean, Unadorned Image */}
     <motion.div
   {...imageHoverFx}
-  {...floatingImageFx}
   variants={imageRevealLeft}
   initial="hidden"
-  whileInView="show"
+  whileInView="floating"
   viewport={viewport}
-      className="w-full lg:w-1/2 transform-gpu will-change-transform"      
+      className="w-full lg:w-1/2 transform-gpu will-change-transform"
     >
       <motion.div
   {...cardHoverFx}
@@ -239,10 +238,9 @@ export default function ServicesHeaderSection() {
     {/* Right Column: Clean Image (Permanent Right Position) */}
     <motion.div
   {...imageHoverFx}
-  {...floatingImageFx}
-  variants={imageRevealRight}
+  variants={imageRevealLeft}
   initial="hidden"
-  whileInView="show"
+  whileInView="floating"
   viewport={viewport}
       className="w-full lg:w-1/2 transform-gpu will-change-transform"
     >
@@ -270,10 +268,9 @@ export default function ServicesHeaderSection() {
     {/* Left Column: Clean Image (Strictly Left Position) */}
     <motion.div
   {...imageHoverFx}
-  {...floatingImageFx}
   variants={imageRevealLeft}
   initial="hidden"
-  whileInView="show"
+  whileInView="floating"
   viewport={viewport}
       className="w-full lg:w-1/2 transform-gpu will-change-transform"
     >
