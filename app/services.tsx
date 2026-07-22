@@ -4,6 +4,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
+import { Plus_Jakarta_Sans, Syne } from 'next/font/google';
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-plus-jakarta',
+  display: 'swap',
+});
+
+const syne = Syne({
+  subsets: ['latin'],
+  weight: ['600', '700', '800'],
+  variable: '--font-syne',
+  display: 'swap',
+});
 import {
   viewport,
   headingReveal,
@@ -29,12 +44,10 @@ import {
 
 export default function ServicesHeaderSection() {
   return (
-    <>
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap');
-      `}</style>
+    <div className={`${plusJakarta.variable} ${syne.variable}`}>
+      <section id="services" className="w-full overflow-hidden bg-[#f8faf8] px-5 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 font-[family-name:var(--font-plus-jakarta)] text-slate-900">
 
-      <section id="services" className="w-full overflow-hidden bg-[#f8faf8] px-5 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 font-['Plus_Jakarta_Sans',sans-serif] text-slate-900">
+      
         <div className="mx-auto max-w-7xl flex flex-col gap-8 lg:flex-row lg:items-end">          
           {/* Left Column: Eyebrow Tag & Main Headline */}
           <motion.div
@@ -360,9 +373,9 @@ export default function ServicesHeaderSection() {
         Book Consultation
      </motion.a>
     </motion.div>
-  </motion.div>
+</motion.div>
 </section>
 
-    </>
+    </div>
   );
 }
