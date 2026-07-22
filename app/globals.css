@@ -23,8 +23,8 @@
     --border-clean: 214 20% 92%;       /* Thin, almost invisible geometric separator line */
 
     /* Fluid Typographic Families */
-    --font-serif: 'Playfair Display', 'Didot', Georgia, serif;
-    --font-sans: 'Inter Variable', system-ui, -apple-system, sans-serif;
+    --font-serif: "Instrument Serif", Georgia, serif;
+--font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
     
     /* Elegant Physical Easing */
     --ease-organic: cubic-bezier(0.25, 1, 0.5, 1);
