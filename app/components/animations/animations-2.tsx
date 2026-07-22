@@ -18,7 +18,7 @@ const SPRING_SMOOTH = {
   stiffness: 140,
   damping: 20,
   mass: 1,
-};
+} as const;
 
 // Apple-style bespoke quintic cubic-bezier curve
 const EASE_CUSTOM: [number, number, number, number] = [
