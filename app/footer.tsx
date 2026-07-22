@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Transition, type Variants } from 'framer-motion';
 import EnhancedForm from "./contact";
 import Footer from "./realfooter";
 
@@ -11,14 +11,14 @@ import {
   Check
 } from 'lucide-react';
 // --- ANIMATION PRESETS ---
-const springConfig = {
-  type: 'spring',
+const springConfig: Transition = {
+  type: "spring",
   stiffness: 110,
   damping: 20,
   mass: 0.8,
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -29,7 +29,7 @@ const containerVariants = {
   },
 };
 
-const scrollUpVariant = {
+const scrollUpVariant: Variants = {
   hidden: { 
     opacity: 0, 
     y: 35,
