@@ -1,6 +1,6 @@
 // app/layout.tsx
 import { Plus_Jakarta_Sans, Instrument_Serif } from 'next/font/google';
-import { VisitorTracker } from '@/components/VisitorTracker';
+import { VisitorTracker } from './components/VisitorTracker';
 
 const jakarta = Plus_Jakarta_Sans({ 
   subsets: ['latin'],
