@@ -10,6 +10,14 @@ import {
   MapPin, 
   Phone 
 } from 'lucide-react';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 const springPhysics: Transition = {
   type: "spring",
@@ -82,16 +90,16 @@ export default function DentalNovaContactForm() {
   };
 
   return (
-    <>
+    <div className={inter.variable}>
+      <link rel="preconnect" href="https://api.fontshare.com" />
       <style jsx global>{`
         @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
         .font-cabinet {
           font-family: 'Cabinet Grotesk', sans-serif;
         }
         .font-inter {
-          font-family: 'Inter', sans-serif;
+          font-family: var(--font-inter), sans-serif;
         }
       `}</style>
 
@@ -423,8 +431,8 @@ export default function DentalNovaContactForm() {
             </form>
           </div>
 
-        </motion.div>
+       </motion.div>
       </section>
-    </>
+    </div>
   );
 }
