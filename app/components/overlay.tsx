@@ -57,18 +57,21 @@ export default function PlaceholderNotice() {
       y: 0,
       filter: "blur(0px)",
       transition: {
-        duration: 0.5,
-        ease: [0.16, 1, 0.3, 1],
-        staggerChildren: 0.015,
-        delayChildren: 0.1,
-      },
+  duration: 0.5,
+  ease: [0.16, 1, 0.3, 1] as const,
+  staggerChildren: 0.015,
+  delayChildren: 0.1,
+},
     },
     exit: {
       opacity: 0,
       scale: 0.96,
       y: 10,
       filter: "blur(6px)",
-      transition: { duration: 0.25, ease: [0.32, 0, 0.67, 0] },
+      transition: {
+  duration: 0.25,
+  ease: [0.32, 0, 0.67, 0] as const,
+},
     },
   };
 
@@ -78,7 +81,10 @@ export default function PlaceholderNotice() {
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
-      transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] },
+      transition: {
+  duration: 0.3,
+  ease: [0.16, 1, 0.3, 1] as const,
+},
     },
   };
 
@@ -91,7 +97,10 @@ export default function PlaceholderNotice() {
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
             animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{
+  duration: 0.4,
+  ease: [0.16, 1, 0.3, 1] as const,
+}}
             onClick={() => setIsOpen(false)}
             className="absolute inset-0 bg-black/40"
           />
