@@ -4,18 +4,7 @@ import { VisitorTracker } from './components/VisitorTracker';
 import React, { Suspense } from "react";
 
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
 
-const serif = Instrument_Serif({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-});
 import type { Metadata, Viewport } from "next";
 
 
@@ -199,7 +188,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${serif.variable}`}>
+    <html lang="en" className={`${jakarta.className} ${serif.className}`}>
       <body>
         <Suspense fallback={null}>
           <VisitorTracker />
