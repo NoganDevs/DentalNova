@@ -5,7 +5,9 @@ import { Variants, Transition } from 'framer-motion';
  * Architectural Motion Curve
  * Custom cubic-bezier matching high-end editorial and luxury UI inertia.
  */
-export const LUXURY_EASE = [0.16, 1, 0.3, 1] as const;
+import type { Easing } from "framer-motion";
+
+export const LUXURY_EASE: Easing = [0.16, 1, 0.3, 1];
 
 /**
  * Dynamic Spring Config
@@ -187,13 +189,13 @@ export const arrowHoverMotion: Variants = {
 /**
  * Enhanced Card Container: Smooth Y-shift on hover
  */
-export const v_doctorCard = {
+export const v_doctorCard: Variants = {
   rest: {
     y: 0,
     boxShadow: "0 0px 0px rgba(0,0,0,0)",
     transition: {
       duration: 0.5,
-      ease: [0.19, 1, 0.22, 1], // Custom Bézier for gentle transition
+      ease: LUXURY_EASE, // Custom Bézier for gentle transition
     },
   },
   hover: {
@@ -201,7 +203,7 @@ export const v_doctorCard = {
     boxShadow: "0 20px 40px -15px rgba(0,0,0,0.05)", // Ultra-subtle depth shadow
     transition: {
       duration: 0.5,
-      ease: [0.19, 1, 0.22, 1],
+      ease: LUXURY_EASE,
     },
   },
 };
@@ -210,13 +212,13 @@ export const v_doctorCard = {
  * Doctor Parallax Image: Combines scaling with shifting
  * Creates a sense of depth inside the container on hover.
  */
-export const v_doctorImageParallax = {
+export const v_doctorImageParallax: Variants = {
   rest: {
     scale: 1,
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.19, 1, 0.22, 1],
+      ease: LUXURY_EASE,
     },
   },
   hover: {
@@ -224,7 +226,7 @@ export const v_doctorImageParallax = {
     y: -10, // Image "rises" slightly inside its container
     transition: {
       duration: 0.8,
-      ease: [0.19, 1, 0.22, 1],
+      ease: LUXURY_EASE,
     },
   },
 };
@@ -232,13 +234,13 @@ export const v_doctorImageParallax = {
 /**
  * Moves the Arrow icon when the card is hovered
  */
-export const v_arrowMove = {
+export const v_arrowMove: Variants = {
     rest: {
         x: 0, y: 0,
-        transition: { duration: 0.3, ease: [0.19, 1, 0.22, 1] }
+        transition: { duration: 0.3, ease: LUXURY_EASE }
     },
     hover: {
         x: 2, y: -2,
-        transition: { duration: 0.3, ease: [0.19, 1, 0.22, 1] }
+        transition: { duration: 0.3, ease: LUXURY_EASE }
     }
 }
