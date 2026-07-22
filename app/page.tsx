@@ -12,7 +12,6 @@
     import PlaceholderNotice from "./components/overlay";
     import Image from 'next/image';
     import type { HTMLMotionProps } from "framer-motion";
-import type { Variants } from "framer-motion";
     
     export default function Home() {
       const [isMobile, setIsMobile] = useState(false);
