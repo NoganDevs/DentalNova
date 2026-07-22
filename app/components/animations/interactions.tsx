@@ -117,9 +117,9 @@ export function useTiltMotion(max = 8) {
   }
 
   function onLeave() {
-    animate(engine.rawX, 0, motionConfig.springSoft);
-    animate(engine.rawY, 0, motionConfig.springSoft);
-  }
+  animate(engine.rawX, 0, { ...motionConfig.springSoft });
+  animate(engine.rawY, 0, { ...motionConfig.springSoft });
+}
 
   return {
 
