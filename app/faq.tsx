@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, ArrowUpRight, Disc } from 'lucide-react';
+import type { Transition } from "framer-motion";
 
 const faqData = [
   {
@@ -32,7 +33,11 @@ const faqData = [
 ];
 
 // Motion physics presets
-const springTransition = { type: 'spring', stiffness: 220, damping: 28 };
+const springTransition: Transition = {
+  type: "spring",
+  stiffness: 400,
+  damping: 28,
+};
 
 export default function CosmeticDentistryFAQ() {
   const [activeIndex, setActiveIndex] = useState(0);
