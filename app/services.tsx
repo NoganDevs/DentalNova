@@ -113,7 +113,7 @@ export default function ServicesHeaderSection() {
 
 
         </div>
-<LazySection>
+      </LazySection>
   <LazySection>
       </section>
       {/* Continuation: Service 01 - Cosmetic Dentistry */}
