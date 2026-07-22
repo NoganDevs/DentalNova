@@ -6,12 +6,20 @@ import {
   useVelocity,
   useAnimationFrame,
 } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export function useToothAnimation() {
   const ref = useRef<HTMLDivElement>(null);
   const isHovered = useRef(false);
+  const [isMobile, setIsMobile] = useState(false);
 
+useEffect(() => {
+  const check = () => setIsMobile(window.innerWidth < 768); // Tailwind md breakpoint
+  check();
+
+  window.addEventListener("resize", check);
+  return () => window.removeEventListener("resize", check);
+}, []);
   // Raw mouse position (-1 to 1)
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -24,11 +32,19 @@ export function useToothAnimation() {
   const floatRotate = useMotionValue(0);
 
   useAnimationFrame((t) => {
-    const time = t / 1000;
-    floatX.set(Math.sin(time * 0.6) * 4 + Math.sin(time * 1.3 + 1) * 2);
-    floatY.set(Math.sin(time * 0.9 + 0.5) * 8 + Math.sin(time * 1.7) * 3);
-    floatRotate.set(Math.sin(time * 0.5) * 2.5);
-  });
+  if (isMobile) {
+    floatX.set(0);
+    floatY.set(0);
+    floatRotate.set(0);
+    return;
+  }
+
+  const time = t / 1000;
+
+  floatX.set(Math.sin(time * 0.6) * 4 + Math.sin(time * 1.3 + 1) * 2);
+  floatY.set(Math.sin(time * 0.9 + 0.5) * 8 + Math.sin(time * 1.7) * 3);
+  floatRotate.set(Math.sin(time * 0.5) * 2.5);
+});
 
   // Spring "personalities"
   const tiltSpring = { stiffness: 200, damping: 20, mass: 0.6 };
@@ -76,28 +92,36 @@ export function useToothAnimation() {
   const glowY = useTransform(mouseY, [-1, 1], [20, 80]);
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    mouseX.set(((e.clientX - rect.left) / rect.width) * 2 - 1);
-    mouseY.set(((e.clientY - rect.top) / rect.height) * 2 - 1);
-  }
+  if (isMobile || !ref.current) return;
+
+  const rect = ref.current.getBoundingClientRect();
+
+  mouseX.set(((e.clientX - rect.left) / rect.width) * 2 - 1);
+  mouseY.set(((e.clientY - rect.top) / rect.height) * 2 - 1);
+}
 
   function handleMouseLeave() {
-    mouseX.set(0);
-    mouseY.set(0);
-  }
+  if (isMobile) return;
+
+  mouseX.set(0);
+  mouseY.set(0);
+}
 
   function handleHoverStart() {
-    isHovered.current = true;
-    scaleX.set(1.1);
-    scaleY.set(1.1);
-  }
+  if (isMobile) return;
+
+  isHovered.current = true;
+  scaleX.set(1.1);
+  scaleY.set(1.1);
+}
 
   function handleHoverEnd() {
-    isHovered.current = false;
-    scaleX.set(1);
-    scaleY.set(1);
-  }
+  if (isMobile) return;
+
+  isHovered.current = false;
+  scaleX.set(1);
+  scaleY.set(1);
+}
 
   function handleTapStart() {
     scaleX.set(1.16); // squash: wider
@@ -117,18 +141,18 @@ export function useToothAnimation() {
   return {
     ref,
     style: {
-      rotateX,
-      rotateY,
-      rotateZ,
-      x,
-      y,
-      scaleX,
-      scaleY,
-      filter: dropShadow,
-      transformPerspective: 1200,
-      transformStyle: "preserve-3d" as const,
-      willChange: "transform",
-    },
+  rotateX: isMobile ? 0 : rotateX,
+  rotateY: isMobile ? 0 : rotateY,
+  rotateZ: isMobile ? 0 : rotateZ,
+  x: isMobile ? 0 : x,
+  y: isMobile ? 0 : y,
+  scaleX,
+  scaleY,
+  filter: dropShadow,
+  transformPerspective: 1200,
+  transformStyle: "preserve-3d" as const,
+  willChange: "transform",
+},
     glow: { x: glowX, y: glowY },
     entrance: {
       initial: { opacity: 0, scale: 0.6, rotate: -12, y: 40 },
