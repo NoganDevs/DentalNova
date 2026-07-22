@@ -129,8 +129,9 @@ export default function Footer() {
               </div>
 
               {/* Zero-Lag Hardware Accelerated Table */}
+              {/* Zero-Lag Hardware Accelerated Table */}
               <div className="w-full border-t border-neutral-900">
-                <div className="grid grid-cols-12 py-3 text-[11px] font-[family-name:var(--font-jakarta)] font-medium uppercase tracking-wider text-neutral-500 border-b border-neutral-900">
+                <div className="hidden sm:grid grid-cols-12 py-3 text-[11px] font-[family-name:var(--font-jakarta)] font-medium uppercase tracking-wider text-neutral-500 border-b border-neutral-900">
                   <span className="col-span-4">Days</span>
                   <span className="col-span-4">Regular Hours</span>
                   <span className="col-span-4 text-right">Emergency Care</span>
@@ -144,15 +145,15 @@ export default function Footer() {
                 ].map((row, idx) => (
                   <div
                     key={idx}
-                    className="grid grid-cols-12 py-4 border-b border-neutral-900 items-center text-sm transition-all duration-200 ease-out hover:bg-neutral-900/50 hover:pl-3 hover:-mr-3 px-1 -mx-1 group cursor-default will-change-transform"
+                    className="flex flex-col gap-1.5 py-4 sm:grid sm:grid-cols-12 sm:gap-0 sm:py-4 border-b border-neutral-900 sm:items-center text-sm transition-all duration-200 ease-out hover:bg-neutral-900/50 sm:hover:pl-3 sm:hover:-mr-3 px-1 -mx-1 group cursor-default"
                   >
-                    <span className="col-span-4 font-[family-name:var(--font-jakarta)] font-medium text-white group-hover:text-white transition-colors">
+                    <span className="sm:col-span-4 font-[family-name:var(--font-jakarta)] font-medium text-white group-hover:text-white transition-colors">
                       {row.days}
                     </span>
-                    <span className="col-span-4 font-[family-name:var(--font-jakarta)] text-xs text-neutral-400">
+                    <span className="sm:col-span-4 font-[family-name:var(--font-jakarta)] text-xs text-neutral-400">
                       {row.hours}
                     </span>
-                    <span className={`col-span-4 font-[family-name:var(--font-jakarta)] text-xs text-right ${row.highlight ? 'text-white font-semibold' : 'text-neutral-500'}`}>
+                    <span className={`sm:col-span-4 font-[family-name:var(--font-jakarta)] text-xs sm:text-right ${row.highlight ? 'text-white font-semibold' : 'text-neutral-500'}`}>
                       {row.emergency}
                     </span>
                   </div>
