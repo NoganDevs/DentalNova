@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { Transition } from "framer-motion";
 import { 
   ArrowUpRight, 
   Check, 
@@ -10,8 +11,8 @@ import {
   Phone 
 } from 'lucide-react';
 
-const springPhysics = {
-  type: 'spring',
+const springPhysics: Transition = {
+  type: "spring",
   stiffness: 400,
   damping: 28,
 };
