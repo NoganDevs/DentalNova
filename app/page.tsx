@@ -12,6 +12,7 @@
     import PlaceholderNotice from "./components/overlay";
     import Image from 'next/image';
     import type { HTMLMotionProps } from "framer-motion";
+import type { Variants } from "framer-motion";
     
     export default function Home() {
       const [isMobile, setIsMobile] = useState(false);
@@ -124,19 +125,23 @@ useEffect(() => {
         }
       };
 
-      const statItemVariants = {
-        hidden: { opacity: 0, scale: 0.85, y: 15 },
-        visible: {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          transition: {
-            type: "spring",
-            stiffness: 100,
-            damping: 15
-          }
-        }
-      };
+      const statItemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.85,
+    y: 15,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15,
+    },
+  },
+};
 
       // 3D tooth entry and exit animations
       const toothSceneVariants = {
