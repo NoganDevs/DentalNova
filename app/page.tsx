@@ -1,6 +1,6 @@
 "use client";
     import { useState, useEffect } from "react";
-    import { motion, AnimatePresence } from "framer-motion";
+    import { motion, AnimatePresence, type Variants } from "framer-motion";
     import AnimatedCounter from "./components/AnimatedCounter";
     import FloatingMobileNav from "./components/FloatingMobileNav";
     import { useToothAnimation } from "./components/animations/animations";
@@ -93,20 +93,24 @@ useEffect(() => {
         }
       };
 
-      const itemVariants = {
-        hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
-        visible: {
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-          transition: {
-            type: "spring",
-            stiffness: 90,
-            damping: 18,
-            mass: 1
-          }
-        }
-      };
+      const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+    filter: "blur(6px)",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      type: "spring" as const,
+      stiffness: 90,
+      damping: 18,
+      mass: 1,
+    },
+  },
+};
 
       // Stats loading transitions
       const statsContainerVariants = {
