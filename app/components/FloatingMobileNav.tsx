@@ -73,8 +73,8 @@ export default function FloatingMobileNav() {
               border
               border-white/60
 
-              bg-white/68
-              backdrop-blur-[24px]
+              bg-white/75
+              backdrop-blur-md
 
               px-2
               py-2
@@ -144,6 +144,7 @@ export default function FloatingMobileNav() {
                       alt={item.label}
                       width={21}
                       height={21}
+                      unoptimized
                       className={`transition-all duration-300 ${
                         active
                           ? "opacity-100 grayscale-0"
