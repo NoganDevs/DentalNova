@@ -47,15 +47,12 @@ export default function PlaceholderNotice() {
   }
 
   // Split text for staggered spring reveal animation
-  const words = textSentence.split(" ");
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.94, y: 16, filter: "blur(8px)" },
+const containerVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.94, y: 16 },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
-      filter: "blur(0px)",
       transition: {
   duration: 0.5,
   ease: [0.16, 1, 0.3, 1] as const,
@@ -67,7 +64,6 @@ export default function PlaceholderNotice() {
       opacity: 0,
       scale: 0.96,
       y: 10,
-      filter: "blur(6px)",
       transition: {
   duration: 0.25,
   ease: [0.32, 0, 0.67, 0] as const,
@@ -101,16 +97,17 @@ export default function PlaceholderNotice() {
   ease: [0.16, 1, 0.3, 1] as const,
 }}
             onClick={() => setIsOpen(false)}
-            className="absolute inset-0 bg-black/40 backdrop-blur-xl"
+            className="absolute inset-0 bg-black/55 backdrop-blur-md"
           />
 
+          {/* Clean Glassmorphic Card */}
           {/* Clean Glassmorphic Card */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="relative w-full max-w-[420px] rounded-3xl border border-white/10 bg-neutral-900/40 p-6 sm:p-7 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] backdrop-blur-3xl backdrop-saturate-200"
+            className="relative w-full max-w-[420px] rounded-3xl border border-white/10 bg-neutral-900/90 p-6 sm:p-7 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)]"
           >
             {/* Top Specular Edge Glow */}
             <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/25 to-transparent" />
