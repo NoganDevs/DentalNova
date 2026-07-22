@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import { ArrowUpRight, ArrowUp, Phone, ShieldCheck, Clock } from 'lucide-react';
 import { Sora, Plus_Jakarta_Sans } from 'next/font/google';
+import type { Easing } from "framer-motion";
 
 const sora = Sora({
   subsets: ['latin'],
@@ -20,7 +21,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 // High-Precision Architectural Easing
-const luxuryEase = [0.22, 1, 0.36, 1];
+const luxuryEase: Easing = [0.22, 1, 0.36, 1];
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
