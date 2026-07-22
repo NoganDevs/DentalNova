@@ -205,7 +205,7 @@ const floatingTransition: Transition = {
 };
 
 export const floatingImageFx = {
-  animate: {
+  floating: {
     y: [0, -2, 0, 2, 0],
     rotate: [0, 0.15, 0, -0.15, 0],
     transition: floatingTransition,
