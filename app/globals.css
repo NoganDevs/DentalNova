@@ -1,0 +1,91 @@
+/* ==========================================================================
+   GLOBAL.CSS - Premium Clinical Light Theme Core
+   ========================================================================== */
+
+/* 1. High-Fashion Editorial Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap');
+
+/* Unified Tailwind v4 Engine Directive */
+@import "tailwindcss";
+
+/* Component Architecture Modules */
+@import "./navbar.css";
+@import "./hero.css";
+
+
+@layer base {
+  :root {
+    /* Pure Clinical Canvas Design Tokens */
+    --background: 0 0% 100%;           /* Crisp, Clean White Backplane */
+    --surface-warm: 30 20% 98%;        /* Soft Alabaster / Organic Warm Cream Background */
+    
+    /* Editorial & High-Trust Text Elements */
+    --foreground: 215 45% 12%;         /* Deep Slate-Charcoal (Never harsh pure black) */
+    --muted: 214 12% 43%;              /* Sophisticated Mineral Gray for Subtext */
+    
+    /* Luxury Medical Brand Accents */
+    --primary: 195 50% 28%;            /* Prestigious Deep Teal-Ocean Blue */
+    --primary-light: 195 40% 95%;      /* Ultra-soft Ice Blue for badges and subtle depth */
+    --accent: 34 35% 55%;              /* Muted Editorial Gold/Champagne for high-end contrast */
+    
+    --border-clean: 214 20% 92%;       /* Thin, almost invisible geometric separator line */
+
+    /* Fluid Typographic Families */
+    --font-serif: 'Playfair Display', 'Didot', Georgia, serif;
+    --font-sans: 'Inter Variable', system-ui, -apple-system, sans-serif;
+    
+    /* Elegant Physical Easing */
+    --ease-organic: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Architectural Layout Primitives */
+  html, body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Editorial Layout Typography (Moving away from loud uppercase tech fonting) */
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 500;                 /* Lighter weights provide an high-end luxury feel */
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: hsl(var(--foreground));
+    text-wrap: balance;
+  }
+
+  /* Secure drag controls for medical layout images */
+  img, svg {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+}
+
+/* Custom Clean Utilities (Replacing heavy tech glowing with soft real-world lighting) */
+@utility spatial-depth-matrix {
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+@utility clinical-shadow-sm {
+  box-shadow: 0 2px 12px rgba(43, 62, 80, 0.03);
+}
+
+@utility clinical-shadow-lg {
+  box-shadow: 
+    0 10px 40px -10px rgba(43, 62, 80, 0.06),
+    0 20px 60px -15px rgba(43, 62, 80, 0.04);
+}
+
+@utility organic-card {
+  background: hsl(var(--background));
+  border: 1px solid hsl(var(--border-clean));
+  border-radius: 12px;
+}

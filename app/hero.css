@@ -1,0 +1,1211 @@
+/* ==========================================================================
+   HERO.CSS - Premium Editorial Light-Theme Layout
+   ========================================================================== */
+
+/* Refined Minimalist Stats Display */
+.hero-stats {
+  display: flex;
+  gap: clamp(2.5rem, 4vw, 4.5rem);
+  border-top: 1px solid hsl(var(--border-clean));
+  padding-top: 2.5rem;
+  width: 100%;
+}
+
+.stat-card h3 {
+  font-size: 1.875rem; /* Downscaled for understated class */
+  font-weight: 400;
+  color: hsl(var(--primary));
+  margin-bottom: 0.375rem;
+}
+
+.stat-card p {
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: hsl(var(--muted));
+  font-weight: 500;
+}
+
+/* --- 5. Hero Right: Simulated Real-Depth Scene --- */
+.hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tooth-scene {
+  position: relative;
+  width: clamp(320px, 30vw, 440px);
+  height: clamp(320px, 30vw, 440px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+/* Pure light backplane atmosphere */
+.tooth-glow {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, hsl(var(--primary-light)) 0%, transparent 70%);
+  filter: blur(25px);
+  transform: translateZ(-40px);
+  pointer-events: none;
+}
+
+/* Core Asset Isolation Framework */
+.tooth-wrapper {
+  position: relative;
+  width: 65%;
+  height: 65%;
+  z-index: 10;
+  transform: translateZ(30px);
+  /* Elegant natural shadow rather than heavy dark drop-shadows */
+  filter: drop-shadow(0 15px 35px rgba(24, 61, 79, 0.08));
+}
+
+.tooth-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Organic Architectural Structural Rings */
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid hsl(var(--border-clean));
+  pointer-events: none;
+}
+
+.ring-one {
+  width: 110%;
+  height: 100%;
+  transform: rotateX(70deg) rotateY(-8deg) translateZ(-60px);
+  opacity: 0.7;
+}
+
+.ring-two {
+  width: 100%;
+  height: 80%;
+  transform: rotateX(70deg) rotateY(-8deg) translateZ(0px);
+  border-style: dashed;
+  opacity: 0.5;
+}
+
+.ring-three {
+  width: 90%;
+  height: 60%;
+  transform: rotateX(70deg) rotateY(-8deg) translateZ(40px);
+  opacity: 0.8;
+}
+
+/* Minimalist Editorial Floating Nodes (Replacing loud plusses/sparks) */
+.floating-circle, .floating-dot {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.circle-1 { top: 15%; right: 5%; width: 14px; height: 14px; border: 1px solid hsl(var(--accent)); transform: translateZ(60px); }
+.circle-2 { bottom: 20%; left: -5%; width: 22px; height: 22px; border: 1px solid hsl(var(--border-clean)); transform: translateZ(-20px); }
+
+.dot-1 { top: 45%; left: -10%; width: 5px; height: 5px; background: hsl(var(--accent)); transform: translateZ(40px); }
+.dot-2 { top: 10%; right: 40%; width: 4px; height: 4px; background: hsl(var(--primary)); transform: translateZ(80px); }
+
+/* --- 6. Adaptive Responsive Compressor --- */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 4rem;
+  }
+  
+  .hero-left {
+    align-items: center;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+    margin-bottom: 3.5rem;
+  }
+  
+  .hero-stats {
+    justify-content: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .primary-button, .secondary-button {
+    width: 100%;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   HERO.CSS - Premium Editorial Light-Theme Layout
+   ========================================================================== */
+
+/* --- 1. Master Canvas Container --- */
+.hero-section {
+  position: relative;
+  /* Use dvh (dynamic viewport height) where supported to handle mobile UI bars */
+  /* Lock the maximum height to the viewport to prevent first-load scrolling */
+  max-height: 100vh;
+  max-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: hsl(var(--background));
+  overflow: hidden;
+  perspective: 1500px;
+  transform-style: preserve-3d;
+  margin-bottom: 6rem;
+}
+
+/* --- 2. Clean, Real-World Background Stack --- */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(hsl(var(--primary) / 0.045) 1px, transparent 1px),
+    linear-gradient(to right, hsl(var(--primary) / 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.015) 1px, transparent 1px);
+  background-size: 24px 24px, 72px 72px, 72px 72px;
+  background-position: center center;
+  opacity: 0.85; /* Soft, precise structural layout bleed */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 80% 50%,
+    hsl(var(--surface-warm) / 0.4) 0%,
+    hsl(var(--background)) 70%
+  );
+}
+
+/* --- 3. Dynamic, Fluid Grid Container --- */
+.hero-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  
+  /* Adjusted vertical paddings to scale down on shorter viewports (vh-based) */
+  padding-top: clamp(80px, 10vh, 120px);
+  padding-bottom: clamp(40px, 5vh, 80px);
+  padding-left: clamp(2rem, 5vw, 6rem);   
+  padding-right: clamp(2rem, 5vw, 6rem);  
+  
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 5vw, 6rem);            
+  align-items: center;
+}
+
+/* --- 4. Hero Left: Editorial Content --- */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Micro Trust Badge */
+.hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 1.125rem;
+  background-color: hsl(var(--surface-warm));
+  border: 1px solid hsl(var(--border-clean));
+  border-radius: 100px;
+  /* Height-relative margin to prevent vertical overflow */
+  margin-bottom: clamp(1rem, 2.5vh, 1.75rem);
+}
+
+.hero-badge span {
+  color: hsl(var(--accent));
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-badge p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: hsl(var(--foreground));
+}
+
+/* Classic, Deliberate Typography */
+.hero-heading h2 {
+  font-size: clamp(2.25rem, 3.5vw, 3.5rem); /* Slightly optimized for cleaner scaling */
+  font-weight: 400; 
+  line-height: 1.15;
+  color: hsl(var(--foreground));
+  margin-bottom: clamp(0.75rem, 2vh, 1.25rem); /* Height-relative spacing */
+}
+
+.hero-heading h2 span {
+  font-style: italic;
+  color: hsl(var(--primary));
+}
+
+.hero-heading p {
+  font-size: clamp(0.95rem, 1vw, 1.05rem); 
+  line-height: 1.6;
+  color: hsl(var(--muted));
+  max-width: 480px;
+  margin-bottom: clamp(1.5rem, 3.5vh, 2.25rem); /* Height-relative spacing */
+}
+
+/* Premium Conversions Layout */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: clamp(2rem, 4.5vh, 3.5rem); /* Height-relative spacing */
+}
+
+.primary-button {
+  padding: 0.875rem 2.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--background));
+  border-radius: 4px; 
+  transition: all 0.4s var(--ease-organic);
+  box-shadow: 0 4px 14px rgba(24, 61, 79, 0.12);
+  cursor: pointer;
+}
+
+.secondary-button {
+  padding: 0.875rem 2.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background-color: transparent;
+  color: hsl(var(--primary));
+  border: 1px solid hsl(var(--primary) / 0.2);
+  border-radius: 4px;
+  transition: all 0.4s var(--ease-organic);
+  cursor: pointer;
+}
+
+/* Refined Minimalist Stats Display */
+.hero-stats {
+  display: flex;
+  gap: clamp(2.5rem, 4vw, 4.5rem);
+  border-top: 1px solid hsl(var(--border-clean));
+  padding-top: clamp(1rem, 2.5vh, 2rem); /* Height-relative spacing */
+  width: 100%;
+}
+
+.stat-card h3 {
+  font-size: 1.75rem; 
+  font-weight: 400;
+  color: hsl(var(--primary));
+  margin-bottom: 0.25rem;
+}
+
+.stat-card p {
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: hsl(var(--muted));
+  font-weight: 500;
+}
+
+.hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: start;
+  height: fit-content;
+  min-height: 0;
+  margin-right: 3rem;
+}
+
+.tooth-scene {
+  position: relative;
+  /* Linked dimensions to height (vh) instead of width (vw) to prevent vertical overflow */
+  width: clamp(280px, 38vh, 440px);
+  height: clamp(280px, 38vh, 440px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+/* Pure light backplane atmosphere */
+.tooth-glow {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, hsl(var(--primary-light)) 0%, transparent 70%);
+  filter: blur(25px);
+  transform: translateZ(-40px);
+  pointer-events: none;
+}
+
+/* Core Asset Isolation Framework */
+.tooth-wrapper {
+  position: relative;
+  width: 65%;
+  height: 65%;
+  z-index: 10;
+  transform: translateZ(30px);
+  filter: drop-shadow(0 15px 35px rgba(24, 61, 79, 0.08));
+}
+
+.tooth-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Organic Architectural Structural Rings */
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid hsl(var(--border-clean));
+  pointer-events: none;
+}
+
+.ring-one {
+  width: 120%;
+  height: 110%;
+  transform: rotateX(70deg) rotateY(-8deg) translateZ(-60px);
+  opacity: 0.7;
+}
+
+.ring-two {
+  width: 100%;
+  height: 90%;
+  transform: rotateX(70deg) rotateY(-8deg) translateZ(0px);
+  border-style: dashed;
+  opacity: 0.5;
+}
+
+.ring-three {
+  width: 80%;
+  height: 75%;
+  transform: rotateX(70deg) rotateY(-8deg) translateZ(40px);
+  opacity: 0.8;
+}
+
+/* Minimalist Editorial Floating Nodes */
+.floating-circle, .floating-dot {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.circle-1 { top: 15%; right: 5%; width: 14px; height: 14px; border: 1px solid hsl(var(--accent)); transform: translateZ(60px); }
+.circle-2 { bottom: 20%; left: -5%; width: 22px; height: 22px; border: 1px solid hsl(var(--border-clean)); transform: translateZ(-20px); }
+
+.dot-1 { top: 45%; left: -10%; width: 5px; height: 5px; background: hsl(var(--accent)); transform: translateZ(40px); }
+.dot-2 { top: 10%; right: 40%; width: 4px; height: 4px; background: hsl(var(--primary)); transform: translateZ(80px); }
+
+/* --- 6. Adaptive Responsive Compressor --- */
+@media (max-width: 1024px) {
+  .hero-section {
+    /* Allow scrolling on tablet/mobile screens where layout columns stack vertically */
+    max-height: none;
+    height: auto;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+  
+  .hero-left {
+    align-items: center;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .hero-stats {
+    justify-content: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .primary-button, .secondary-button {
+    width: 100%;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+}
+/* ==========================================================================
+   HERO STYLE OVERRIDES (To be appended at the end of the stylesheet)
+   ========================================================================== */
+
+/* 1. Tooth Wrapper: Large size & elegant left-side tilt */
+/* transform intentionally left to Framer Motion's inline style (tilt/float/hover/tap) */
+.tooth-scene .tooth-wrapper {
+  width: 85% !important;
+  height: 85% !important;
+}
+
+/* 2. Sharp Corners and Preparation for Premium Hover Effects */
+.primary-button, 
+.secondary-button {
+  border-radius: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Base style for the smooth slide-in background overlay */
+.primary-button::before,
+.secondary-button::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  transform: scaleX(0) !important;
+  transform-origin: right !important;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  z-index: -1 !important;
+}
+
+/* 3. Primary Button Hover Override (Smooth color inversion) */
+.primary-button {
+  border: 1px solid hsl(var(--primary)) !important;
+}
+
+.primary-button::before {
+  background-color: hsl(var(--background)) !important;
+}
+
+.primary-button:hover {
+  color: hsl(var(--primary)) !important;
+}
+
+.primary-button:hover::before {
+  transform: scaleX(1) !important;
+  transform-origin: left !important;
+}
+
+/* 4. Secondary Button Hover Override (Smooth color fill) */
+.secondary-button {
+  border: 1px solid hsl(var(--primary) / 0.3) !important;
+}
+
+.secondary-button::before {
+  background-color: hsl(var(--primary)) !important;
+}
+
+.secondary-button:hover {
+  color: hsl(var(--background)) !important;
+  border-color: hsl(var(--primary)) !important;
+}
+
+.secondary-button:hover::before {
+  transform: scaleX(1) !important;
+  transform-origin: left !important;
+}
+
+/* ==========================================================================
+   UPDATED TOOTH IMAGE OVERRIDES (Make it much larger)
+   ========================================================================== */
+/* 1. Scale up the master scene boundaries and use 'vmin' for dual-axis responsiveness.
+   - We lowered the minimum to 300px to prevent mobile overflow.
+   - We raised the preferred size to 65vmin (up from 50vh) to make it larger.
+   - We raised the maximum limit to 700px (up from 560px) to allow more growth on larger displays. */
+.tooth-scene {
+  width: clamp(300px, 65vmin, 700px) !important;
+  height: clamp(300px, 65vmin, 700px) !important;
+  
+  /* Ensures the oversized wrapper does not get clipped at the container edges */
+  overflow: visible !important; 
+}
+
+/* 2. Expand the wrapper further to fill the newly enlarged space,
+   maintaining the tilt and centering its contents */
+.tooth-scene .tooth-wrapper {
+  width: 135% !important;
+  height: 135% !important;
+  /* transform intentionally left to Framer Motion's inline style (tilt/float/hover/tap) */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 3. Increase the direct scale boost of the image to maximize visual presence */
+.tooth-wrapper img {
+  width: 100% !important;
+  height: 100% !important;
+  transform: scale(1.2) !important;
+  object-fit: contain !important;
+}
+/* ==========================================================================
+   HERO STYLE OVERRIDES (Append directly to the end of your stylesheet)
+   ========================================================================== */
+
+/* --- 1. Balanced & Enlarged Real-Depth Tooth Scene --- */
+.tooth-scene {
+  width: clamp(340px, 32vw, 580px) !important;
+  aspect-ratio: 1 / 1;
+  height: auto !important;
+
+  margin-left: clamp(2rem, 5vw, 6rem);
+
+  align-self: flex-start;
+  flex: 0 0 auto;
+}
+
+/* Consolidated wrapper styles to prevent conflicting overrides.
+   Maintains proportions relative to the background depth rings. */
+.tooth-scene .tooth-wrapper {
+  width: 90% !important;
+  height: 90% !important;
+  /* transform intentionally left to Framer Motion's inline style (tilt/float/hover/tap) */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  filter: drop-shadow(0 20px 40px rgba(24, 61, 79, 0.12)) !important;
+}
+
+/* Image perfectly bound to its visual frame */
+.tooth-wrapper img {
+  width: 100% !important;
+  height: 100% !important;
+  transform: scale(1.1) !important;
+  object-fit: contain !important;
+}
+
+
+/* --- 2. Ultra-Smooth Hardware-Accelerated Buttons --- */
+.primary-button, 
+.secondary-button {
+  border-radius: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  /* Premium timing curve for fluid motion */
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  
+  /* Prevents subpixel rendering jitter on modern screens */
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Optimized slide-in pseudo background overlay */
+.primary-button::before,
+.secondary-button::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  transform: scaleX(0) !important;
+  transform-origin: right !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  z-index: -1 !important;
+  
+  /* Force hardware acceleration GPU rasterization */
+  will-change: transform;
+  transform: scaleX(0) translateZ(0) !important;
+}
+
+/* Smooth transition origin flip on hover */
+.primary-button:hover::before,
+.secondary-button:hover::before {
+  transform: scaleX(1) translateZ(0) !important;
+  transform-origin: left !important;
+}
+
+/* Primary Button color swaps */
+.primary-button {
+  border: 1px solid hsl(var(--primary)) !important;
+}
+
+.primary-button::before {
+  background-color: hsl(var(--background)) !important;
+}
+
+.primary-button:hover {
+  color: hsl(var(--primary)) !important;
+}
+
+/* Secondary Button color swaps */
+.secondary-button {
+  border: 1px solid hsl(var(--primary) / 0.3) !important;
+}
+
+.secondary-button::before {
+  background-color: hsl(var(--primary)) !important;
+}
+
+.secondary-button:hover {
+  color: hsl(var(--background)) !important;
+  border-color: hsl(var(--primary)) !important;
+}
+/* --- 3. Layout Flow & Top-Alignment Overrides --- */
+.hero-section {
+  height: fit-content !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  overflow: hidden !important;
+}
+
+.hero-container {
+  padding-top: clamp(100px, 12vh, 160px) !important;
+  padding-bottom: 0 !important;
+}
+
+/* Ensure background layer heights map precisely to the dynamic section boundaries */
+.hero-background,
+.hero-overlay {
+  height: 100% !important;
+  min-height: 100% !important;
+}
+
+/* Responsive safety valve: removes height ceilings when columns stack on smaller devices */
+@media (max-width: 1024px) {
+  .hero-section {
+    max-height: none !important; /* Allows layout to expand naturally on tablets and phones */
+    height: auto !important;
+  }
+  .hero-container {
+    padding-top: 100px !important;
+    padding-bottom: 80px !important;
+    align-items: center !important; /* Re-centers grid elements once they stack on mobile */
+  }
+}
+/* ==========================================================================
+   CLEAN DENTAL RESPONSIVE OVERRIDES (Append to bottom of hero.css)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  /* --- 1. Clean Navbar Link Hiding & Logo Centering --- */
+  .navbar-links {
+    display: none !important;
+  }
+  
+  .navbar-container {
+    justify-content: center !important;
+    padding: 0 1.5rem !important;
+  }
+
+  .navbar-section {
+    padding: 1rem 0 !important;
+    background-color: hsl(var(--background) / 0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid hsl(var(--border-clean)) !important;
+  }
+
+  /* --- 2. Master Canvas Height Fix --- */
+  .hero-section {
+    max-height: none !important;
+    height: auto !important;
+    justify-content: flex-start !important;
+    overflow: visible !important;
+  }
+
+  /* --- 3. Fluid Responsive Layout Ordering (Image Top, Text Bottom) --- */
+  .hero-container {
+    display: flex !important;
+    flex-direction: column-reverse !important; /* Physically forces .hero-right (image) to the top */
+    align-items: start;
+align-content: start;
+    text-align: center !important;
+    gap: 2.5rem !important;
+    padding-top: 100px !important;
+    padding-bottom: 60px !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    height: 100%;
+  }
+
+  .hero-right {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .hero-left {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+.tooth-scene {
+  width: clamp(340px, 32vw, 580px) !important;
+  aspect-ratio: 1 / 1;
+  height: auto !important;
+
+  margin-left: clamp(2rem, 5vw, 6rem);
+
+  align-self: flex-start;
+  flex: 0 0 auto;
+}
+  /* Restored static blueprints of your original orbital rings */
+  .ring-one {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: rotateX(70deg) rotateY(-8deg) translateZ(-60px) !important;
+    border: 1px solid hsl(var(--border-clean)) !important;
+    opacity: 0.7 !important;
+  }
+
+  .ring-two {
+    display: block !important;
+    width: 80% !important;
+    height: 80% !important;
+    transform: rotateX(70deg) rotateY(-8deg) translateZ(0px) !important;
+    border: 1px dashed hsl(var(--border-clean)) !important;
+    opacity: 0.5 !important;
+  }
+
+  .ring-three {
+    display: block !important;
+    width: 60% !important;
+    height: 60% !important;
+    transform: rotateX(70deg) rotateY(-8deg) translateZ(40px) !important;
+    border: 1px solid hsl(var(--border-clean)) !important;
+    opacity: 0.8 !important;
+  }
+
+  .tooth-scene .tooth-wrapper {
+    position: relative !important;
+    width: 65% !important;
+    height: 65% !important;
+    /* transform intentionally left to Framer Motion's inline style (tilt/float/hover/tap) */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    filter: drop-shadow(0 15px 35px rgba(24, 61, 79, 0.08)) !important;
+  }
+
+  .tooth-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1.1) !important;
+    object-fit: contain !important;
+  }
+
+  /* Restored clean background atmosphere */
+  .tooth-glow {
+    position: absolute !important;
+    width: 60% !important;
+    height: 60% !important;
+    background: radial-gradient(circle, hsl(var(--primary-light)) 0%, transparent 70%) !important;
+    filter: blur(25px) !important;
+    transform: translateZ(-40px) !important;
+    opacity: 0.8 !important;
+  }
+
+  /* Pristine spatial reference coordinates */
+  .floating-circle, .floating-dot {
+    position: absolute !important;
+    display: block !important;
+  }
+
+  .circle-1 { top: 15% !important; right: 5% !important; width: 14px !important; height: 14px !important; border: 1px solid hsl(var(--accent)) !important; transform: translateZ(60px) !important; }
+  .circle-2 { bottom: 20% !important; left: -5% !important; width: 22px !important; height: 22px !important; border: 1px solid hsl(var(--border-clean)) !important; transform: translateZ(-20px) !important; }
+  .dot-1 { top: 45% !important; left: -10% !important; width: 5px !important; height: 5px !important; background: hsl(var(--accent)) !important; transform: translateZ(40px) !important; }
+  .dot-2 { top: 10% !important; right: 40% !important; width: 4px !important; height: 4px !important; background: hsl(var(--primary)) !important; transform: translateZ(80px) !important; }
+
+  /* Hide active layout-breaking sparks/plusses to keep UI clean */
+  .floating-plus,
+  .spark,
+  .hero-decorations,
+  .hero-bottom-fade,
+  .hero-blur {
+    display: none !important;
+  }
+
+  /* --- 5. Clean Dental Typography & Centered Spacings --- */
+  .hero-badge {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.625rem !important;
+    padding: 0.5rem 1.125rem !important;
+    background-color: hsl(var(--surface-warm)) !important;
+    border: 1px solid hsl(var(--border-clean)) !important;
+    border-radius: 100px !important; /* Original soft pill shape */
+    margin-bottom: 1.5rem !important;
+  }
+
+  .hero-heading h2 {
+    font-size: clamp(2.25rem, 5vw, 3rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1.25rem !important;
+    text-align: center !important;
+  }
+
+  .hero-heading p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    color: hsl(var(--muted)) !important;
+    max-width: 480px !important;
+    margin: 0 auto 2.25rem auto !important;
+    text-align: center !important;
+  }
+
+  .hero-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    margin-bottom: 3.5rem !important;
+    width: 100% !important;
+  }
+
+  /* Restored original clean rounded buttons */
+  .primary-button {
+    padding: 0.875rem 2.25rem !important;
+    background-color: hsl(var(--primary)) !important;
+    color: hsl(var(--background)) !important;
+    border-radius: 4px !important; /* Clean soft corners */
+    box-shadow: 0 4px 14px rgba(24, 61, 79, 0.12) !important;
+  }
+
+  .secondary-button {
+    padding: 0.875rem 2.25rem !important;
+    background-color: transparent !important;
+    color: hsl(var(--primary)) !important;
+    border: 1px solid hsl(var(--primary) / 0.2) !important;
+    border-radius: 4px !important;
+  }
+
+  /* --- 6. Disable All Active Performance Loops --- */
+  /* Note: .tooth-scene / .tooth-wrapper / .tooth-glow deliberately excluded —
+     their motion is driven by Framer Motion inline styles (tilt, float, hover,
+     tap), not CSS animations. Forcing transform:none !important here overrides
+     that inline transform and kills the interactive tooth entirely. */
+  .hero-heading h2,
+  .hero-heading p,
+  .hero-badge,
+  .hero-actions,
+  .hero-stats,
+  .stat-card,
+  .primary-button,
+  .secondary-button {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  .primary-button::before,
+  .secondary-button::before {
+    display: none !important;
+  }
+
+  /* --- 7. Original Soft Centered Stats Layout --- */
+  .hero-stats {
+    display: flex !important;
+    gap: clamp(1.5rem, 4vw, 3rem) !important;
+    border-top: 1px solid hsl(var(--border-clean)) !important;
+    border-bottom: none !important;
+    padding-top: 1.75rem !important;
+    width: 100% !important;
+    justify-content: center !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+  }
+
+  .stat-card {
+    text-align: center !important;
+    padding: 0 !important;
+    border-right: none !important;
+  }
+
+  .stat-card h3 {
+    font-size: 1.625rem !important;
+    font-weight: 400 !important;
+    color: hsl(var(--primary)) !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .stat-card p {
+    font-size: 0.75rem !important;
+    color: hsl(var(--muted)) !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE NARROW VIEWPORTS (Phones)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .hero-container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    gap: 2rem !important;
+  }
+
+  .tooth-scene {
+    width: 220px !important;
+    height: 220px !important;
+  }
+
+  .hero-heading h2 {
+    font-size: 2rem !important;
+  }
+
+  .hero-heading p {
+    font-size: 0.9rem !important;
+  }
+
+  .hero-actions {
+    flex-direction: column !important; /* Stack vertically for snug phone screens */
+    gap: 1rem !important;
+  }
+
+  .primary-button, 
+  .secondary-button {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .hero-stats {
+    gap: 1.25rem !important;
+  }
+
+  .stat-card h3 {
+    font-size: 1.35rem !important;
+  }
+
+  .stat-card p {
+    font-size: 0.65rem !important;
+  }
+}
+
+/* ==========================================================================
+   HIGH-CONTRAST ACTIVE INTERACTIONS (hero.css)
+   ========================================================================== */
+
+/* Remove default tap overlays on mobile browsers globally */
+.primary-button, 
+.secondary-button, 
+.navbar-links a, 
+.hero-badge, 
+.stat-card {
+  -webkit-tap-highlight-color: transparent !important;
+  user-select: none !important;
+  will-change: transform, box-shadow, background-color, border-color, color;
+  backface-visibility: hidden;
+}
+
+/* Fluid responsive speeds on clicks */
+.primary-button, 
+.secondary-button, 
+.navbar-links a, 
+.hero-badge, 
+.stat-card {
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.12s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.12s ease,
+              border-color 0.12s ease,
+              color 0.12s ease !important;
+}
+
+/* --- 1. Primary Action Button --- */
+.primary-button.is-pressed {
+  transform: scale(0.95) translateY(1.5px) !important;
+  box-shadow: 0 2px 6px rgba(24, 61, 79, 0.08) !important;
+  
+  /* Forces background dark and locks text color to high-contrast white */
+  background-color: hsl(var(--primary) / 0.95) !important;
+  color: hsl(var(--background)) !important; 
+}
+
+/* --- 2. Secondary Border Button --- */
+.secondary-button.is-pressed {
+  transform: scale(0.95) translateY(1.5px) !important;
+  
+  /* Keeps the background soft and locks text to dark primary color */
+  background-color: hsl(var(--primary) / 0.08) !important;
+  color: hsl(var(--primary)) !important; 
+  border-color: hsl(var(--primary) / 0.4) !important;
+}
+
+/* --- 3. Premium Badges --- */
+.hero-badge.is-pressed {
+  transform: scale(0.97) translateY(1px) !important;
+  background-color: hsl(var(--surface-warm) / 0.9) !important;
+  color: hsl(var(--foreground)) !important; 
+}
+
+/* --- 4. Navbar Links --- */
+.navbar-links a.is-pressed {
+  transform: scale(0.94) translateY(0.5px) !important;
+  color: hsl(var(--primary)) !important; 
+}
+
+/* --- 5. Clean Physical Stats Cards --- */
+.stat-card.is-pressed {
+  transform: scale(0.96) translateY(1px) !important;
+}
+/* Remove extra whitespace below hero */
+.hero-container,
+.hero-left,
+.hero-right {
+  margin-bottom: 0 !important;
+}
+
+.hero-section > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+
+
+/* ==========================================================================
+   LAYOUT REPAIR & ULTRA-LUXURY EDITORIAL APPEND
+   ========================================================================== */
+
+/* 2. Soft Luxury Canvas Base */
+.hero-section {
+  background-color: #fbfcfd !important;
+}
+
+/* 3. High-Ticket Editorial Typography (Scoped strictly to text nodes) */
+.hero-heading h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.035em !important;
+  color: #0d151c !important;
+}
+
+.hero-heading h2 span {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+  font-size: 1.18em !important;
+  letter-spacing: -0.015em !important;
+  background: linear-gradient(135deg, #102a37 0%, #2c5e7a 60%, #183d4f 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  padding-right: 0.04em;
+}
+
+.hero-heading p {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: clamp(0.925rem, 1vw, 1.05rem) !important;
+  line-height: 1.7 !important;
+  color: #52606d !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* 4. Glassmorphism Trust Badge Micro-Glass */
+.hero-badge {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(12px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+  border: 1px solid rgba(24, 61, 79, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02) !important;
+}
+
+.hero-badge p {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.725rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #183d4f !important;
+}
+
+/* 5. Luxury Architectural Buttons (Preserves existing size & mobile flex) */
+.primary-button, 
+.secondary-button {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.775rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  box-sizing: border-box !important;
+}
+
+.primary-button {
+  background-color: #183d4f !important;
+  color: #ffffff !important;
+  border: 1px solid #183d4f !important;
+  box-shadow: 0 10px 25px -5px rgba(24, 61, 79, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(24, 61, 79, 0.2) !important;
+  color: #183d4f !important;
+}
+
+/* 6. High-Contrast Editorial Stats Numbers */
+.stat-card h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 2.25rem !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em !important;
+  color: #183d4f !important;
+}
+
+.stat-card p {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.675rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #64748b !important;
+}
+
+/* 7. Atmosphere Light Glow */
+.tooth-glow {
+  background: radial-gradient(
+    circle, 
+    rgba(180, 215, 230, 0.3) 0%, 
+    rgba(255, 255, 255, 0) 70%
+  ) !important;
+}

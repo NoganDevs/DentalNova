@@ -1,0 +1,257 @@
+  .navbar-section {
+      position: fixed; 
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100; 
+      pointer-events: none; /* Allows clicks to pass through empty margins */
+      display: flex;
+      justify-content: center;
+      
+      /* Hardware Render Cache Isolation */
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+    
+    /* --- 2. Fluid Responsive Container Constraints --- */
+    .navbar-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: auto; /* Restores click tracking for navbar elements */
+      border: 1px solid transparent;
+      box-sizing: border-box;
+    }
+    
+    /* --- 3. Typographic Branding Logo --- */
+    .navbar-logo {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .navbar-logo h1 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      user-select: none;
+      color: hsl(var(--foreground));
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .navbar-logo h1 span {
+      font-style: italic;
+      font-weight: 400;
+      color: hsl(var(--primary));
+      margin-left: 0.1em;
+    }
+    
+    .navbar-logo:hover h1 {
+      transform: translateY(-1px);
+    }
+    
+    /* --- 4. Clean Editorial Link Matrix --- */
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 3rem; 
+    }
+    
+    .navbar-links a {
+      position: relative;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: hsl(var(--muted));
+      text-transform: uppercase;
+      transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 0.5rem 0;
+      backface-visibility: hidden;
+    }
+    
+    .navbar-links a:hover {
+      color: hsl(var(--primary));
+    }
+    
+    /* --- 5. Scroll-Activated Booking Button --- */
+    .navbar-booking-btn {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: white;
+      background: linear-gradient(135deg, hsl(var(--primary)) 0%, #0891b2 100%);
+      border: none;
+      border-radius: 9999px;
+      box-shadow: 0 4px 15px rgba(8, 145, 178, 0.15);
+      cursor: pointer;
+      padding: 0.65rem 1.5rem;
+      margin-left: 1.5rem;
+      
+      transition: 
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+    }
+    
+    .navbar-booking-btn:hover {
+      background: linear-gradient(135deg, #0891b2 0%, hsl(var(--primary)) 100%);
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(8, 145, 178, 0.25);
+    }
+    
+    .navbar-booking-btn:active {
+      transform: translateY(0) scale(0.97);
+    }
+ 
+    /* --- 6. Breakpoint Layout Management --- */
+    @media (max-width: 1200px) {
+      .navbar-links {
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .navbar-links {
+        gap: 1.5rem;
+      }
+      .navbar-links a {
+        font-size: 0.7rem;
+        letter-spacing: 0.05em;
+      }
+    }
+
+    
+
+    @media (max-width: 768px) {
+      .navbar-container {
+        padding: 0 1.5rem !important; /* Forces normal margins on tablet/mobile */
+      }
+      .navbar-links {
+        display: none !important; /* Hide links on mobile viewports */
+      }
+    }
+
+    /* --- 7. Mobile Drawer & Toggle System --- */
+    .mobile-menu-toggle {
+      display: none; /* Hidden by default (desktop) */
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: hsl(var(--foreground));
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 101; /* Above standard navbar elements */
+      border-radius: 9999px;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .mobile-menu-toggle:hover {
+      background-color: hsl(var(--primary-light) / 0.8);
+    }
+
+    .mobile-menu-toggle:active {
+      transform: scale(0.95);
+    }
+
+    .mobile-menu-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(24px) saturate(180%);
+      WebkitBackdropFilter: blur(24px) saturate(180%);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      border-bottom: 1px solid hsl(var(--border-clean));
+    }
+
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .mobile-menu-links a {
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: hsl(var(--muted));
+      text-transform: uppercase;
+      transition: color 0.3s ease, transform 0.2s ease;
+      padding: 0.5rem 1rem;
+    }
+
+    .mobile-menu-links a:hover,
+    .mobile-menu-links a:active {
+      color: hsl(var(--primary));
+      transform: translateY(-2px);
+    }
+
+    .mobile-booking-btn {
+      width: 100%;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: white;
+      background: linear-gradient(135deg, hsl(var(--primary)) 0%, #0891b2 100%);
+      border: none;
+      border-radius: 9999px;
+      box-shadow: 0 4px 15px rgba(8, 145, 178, 0.15);
+      cursor: pointer;
+      padding: 1rem 2rem;
+      margin-top: 1.5rem;
+      text-align: center;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    .mobile-booking-btn:hover {
+      background: linear-gradient(135deg, #0891b2 0%, hsl(var(--primary)) 100%);
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(8, 145, 178, 0.25);
+    }
+
+    .mobile-booking-btn:active {
+      transform: translateY(0) scale(0.97);
+    }
+
+@media (max-width:1024px){
+
+.navbar-section{
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: auto !important;
+}
+
+.navbar-container{
+    position: relative !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    box-shadow:none !important;
+    border:none !important;
+    padding:24px 0 !important;
+    justify-content:center !important;
+    margin-bottom: -2rem;
+}
+}
