@@ -8,7 +8,6 @@ import {
   useTransform,
   useVelocity,
   useReducedMotion,
-  Transition,
 } from "framer-motion";
 import { useEffect } from "react";
 /* ==========================================================
