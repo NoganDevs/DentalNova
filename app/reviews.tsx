@@ -1,5 +1,21 @@
 import React, { useState } from 'react';
 import { Star, MapPin, ArrowUpRight, Check, ChevronRight } from 'lucide-react';
+import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  style: ['normal', 'italic'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-jakarta',
+  display: 'swap',
+});
 
 /**
  * FRAMER MOTION PLACEHOLDER WRAPPER
@@ -63,18 +79,17 @@ const REVIEWS: Review[] = [
 
 export default function DentalReviewsSection() {
   const [activeReview, setActiveReview] = useState<Review>(REVIEWS[0]);
+  const [mapLoaded, setMapLoaded] = useState(false);
   const googleMapsUrl = "https://maps.google.com/?q=740+Park+Avenue+New+York";
 
-  return (
-    <>
+return (
+    <div className={`${playfair.variable} ${jakarta.variable}`}>
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-
         .font-playfair {
-          font-family: 'Playfair Display', Georgia, serif;
+          font-family: var(--font-playfair), Georgia, serif;
         }
         .font-sans-custom {
-          font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+          font-family: var(--font-jakarta), -apple-system, BlinkMacSystemFont, sans-serif;
         }
       `}</style>
 
@@ -222,27 +237,39 @@ export default function DentalReviewsSection() {
       </div>
 
       {/* Right Google Maps Canvas */}
+{/* Right Google Maps Canvas */}
       <div className="lg:col-span-7 relative min-h-[320px] rounded-2xl overflow-hidden border border-neutral-800/80 group z-10">
-        <iframe
-          title="Practice Location Map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.217707322883!2d-73.98658822342082!3d40.75549823483984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259002f231777%3A0x6a0868f05e3ec400!2sHarley%20Street%20Medical!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-          className="w-full h-full grayscale opacity-85 contrast-110 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out"
-          style={{ border: 0 }}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-        
+        {mapLoaded ? (
+          <iframe
+            title="Practice Location Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.217707322883!2d-73.98658822342082!3d40.75549823483984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259002f231777%3A0x6a0868f05e3ec400!2sHarley%20Street%20Medical!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+            className="w-full h-full grayscale opacity-85 contrast-110 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out"
+            style={{ border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setMapLoaded(true)}
+            aria-label="Load interactive map"
+            className="w-full h-full flex flex-col items-center justify-center gap-3 bg-neutral-900 text-neutral-300 text-xs font-sans-custom font-semibold"
+          >
+            <MapPin className="w-6 h-6" />
+            <span>Tap to load interactive map</span>
+          </button>
+        )}
+
         <div className="absolute top-5 left-5 bg-neutral-950/95 backdrop-blur-md px-4 py-2.5 rounded-xl border border-neutral-700/80 text-xs font-bold font-sans-custom text-white shadow-xl">
           740 Park Ave, New York
         </div>
       </div>
-
     </div>
   </div>
 </MotionFadeUp>
 
         </div>
       </section>
-    </>
+    </div>
   );
 }
