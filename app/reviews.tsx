@@ -10,7 +10,7 @@ import {
   MotionQuoteSwitcher, 
   MotionReviewCard, 
   MotionDirectionsButton 
-} from './lib/review_animations.tsx';
+} from './lib/review_animations';
 
 interface Review {
   id: string;
