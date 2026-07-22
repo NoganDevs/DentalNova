@@ -3,10 +3,7 @@
 /* Unified Tailwind v4 Engine Directive */
 @import "tailwindcss";
 
-/* Component Architecture Modules */
-@import "./navbar.css";
-@import "./hero.css";
-@import "./responsive.css";
+
 
 @layer base {
   :root {
