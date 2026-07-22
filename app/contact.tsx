@@ -16,7 +16,7 @@ const springPhysics = {
   damping: 28,
 };
 
-const transitionEase = [0.215, 0.61, 0.355, 1];
+const transitionEase = [0.215, 0.61, 0.355, 1] as const;
 
 const containerVariants = {
   hidden: { opacity: 0 },
