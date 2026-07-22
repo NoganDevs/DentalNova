@@ -10,7 +10,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { useEffect } from "react";
-
+import type { Transition } from "framer-motion";
 /* ==========================================================
    NOGAN MOTION ENGINE
    Part 1 — Physics Foundation
@@ -193,32 +193,25 @@ export function useImageDepth() {
    Ambient Floating
 ========================================================== */
 
-export const floatingImageFx = {
+/* ==========================================================
+   Ambient Floating
+========================================================== */
 
-  animate: {
+import type { Transition } from "framer-motion";
 
-    y: [0, -2, 0, 2, 0],
-
-    rotate: [
-      0,
-      0.15,
-      0,
-      -0.15,
-      0,
-    ],
-
-    transition: {
-
-      duration: 16,
-
-      repeat: Infinity,
-
-      ease: "easeInOut",
-    },
-  },
+const floatingTransition: Transition = {
+  duration: 16,
+  repeat: Infinity,
+  ease: "easeInOut",
 };
 
-
+export const floatingImageFx = {
+  animate: {
+    y: [0, -2, 0, 2, 0],
+    rotate: [0, 0.15, 0, -0.15, 0],
+    transition: floatingTransition,
+  },
+};
 /* ==========================================================
    PREMIUM COMPONENT PRESETS
 ========================================================== */
