@@ -50,12 +50,10 @@ export const headingReveal: Variants = {
   hidden: {
     opacity: 0,
     y: 24,
-    filter: "blur(6px)",
   },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: {
       duration: 0.8,
       ease: EASE_CUSTOM,
@@ -86,40 +84,33 @@ export const imageRevealLeft: Variants = {
     x: -32,
     scale: 0.95,
     rotate: -1.5,
-    filter: "blur(4px)",
   },
   show: {
     opacity: 1,
     x: 0,
     scale: 1,
     rotate: 0,
-    filter: "blur(0px)",
     transition: {
       ...SPRING_SMOOTH,
       opacity: { duration: 0.5, ease: EASE_CUSTOM },
-      filter: { duration: 0.4 },
     },
   },
 };
-
 export const imageRevealRight: Variants = {
   hidden: {
     opacity: 0,
     x: 32,
     scale: 0.95,
     rotate: 1.5,
-    filter: "blur(4px)",
   },
   show: {
     opacity: 1,
     x: 0,
     scale: 1,
     rotate: 0,
-    filter: "blur(0px)",
     transition: {
       ...SPRING_SMOOTH,
       opacity: { duration: 0.5, ease: EASE_CUSTOM },
-      filter: { duration: 0.4 },
     },
   },
 };
