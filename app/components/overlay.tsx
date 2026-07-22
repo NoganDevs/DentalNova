@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, Variants, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 
 const textSentence =
@@ -49,7 +49,7 @@ export default function PlaceholderNotice() {
   // Split text for staggered spring reveal animation
   const words = textSentence.split(" ");
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0, scale: 0.94, y: 16, filter: "blur(8px)" },
     visible: {
       opacity: 1,
@@ -70,7 +70,7 @@ export default function PlaceholderNotice() {
       filter: "blur(6px)",
       transition: { duration: 0.25, ease: [0.32, 0, 0.67, 0] },
     },
-  } as const;
+  };
 
   const wordVariants = {
     hidden: { opacity: 0, y: 8, filter: "blur(4px)" },
