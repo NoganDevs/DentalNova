@@ -68,17 +68,8 @@ export function useToothAnimation() {
   const scaleY = useSpring(1, scaleSpring);
 
   // Grounding shadow — reacts to tilt so the tooth feels lifted toward the light
-  const shadowBlur = useTransform(
-    [rotateX, rotateY],
-    ([rx, ry]) => 18 + Math.min(Math.abs(Number(rx)) + Math.abs(Number(ry)), 24)
-  );
-  const shadowOffsetX = useTransform(rotateY, [-18, 18], [-14, 14]);
-  const shadowOffsetY = useTransform(rotateX, [-18, 18], [10, -10]);
-  const dropShadow = useTransform(
-    [shadowOffsetX, shadowOffsetY, shadowBlur],
-    ([ox, oy, blur]) =>
-      `drop-shadow(${ox}px ${Number(oy) + 14}px ${blur}px rgba(15, 23, 42, 0.28))`
-  );
+  // Grounding shadow — static, avoids per-frame filter recalculation
+  const dropShadow = "drop-shadow(0px 14px 22px rgba(15, 23, 42, 0.28))";
 
   // Glossy highlight position (for an optional overlay div, e.g. radial-gradient)
   const glowX = useTransform(mouseX, [-1, 1], [20, 80]);
@@ -136,7 +127,7 @@ export function useToothAnimation() {
       filter: dropShadow,
       transformPerspective: 1200,
       transformStyle: "preserve-3d" as const,
-      willChange: "transform, filter",
+      willChange: "transform",
     },
     glow: { x: glowX, y: glowY },
     entrance: {
