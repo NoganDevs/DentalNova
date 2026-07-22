@@ -1,6 +1,6 @@
 // app/api/track/route.ts
 import { NextResponse } from 'next/server';
-import { supabaseServer } from '@/lib/supabaseServer';
+import { supabaseServer } from '@/app/lib/supabaseServer';
 
 function parseSource(referrer: string, utmSource: string | null): string {
   if (utmSource) return utmSource.toLowerCase();
