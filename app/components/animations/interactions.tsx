@@ -19,21 +19,21 @@ export const motionConfig = {
   perspective: 1800,
 
   spring: {
-    type: "spring",
+    type: "spring" as const,
     stiffness: 165,
     damping: 21,
     mass: 0.72,
   },
 
   springFast: {
-    type: "spring",
+    type: "spring" as const,
     stiffness: 340,
     damping: 26,
     mass: 0.45,
   },
 
   springSoft: {
-    type: "spring",
+    type: "spring" as const,
     stiffness: 120,
     damping: 18,
     mass: 0.9,
