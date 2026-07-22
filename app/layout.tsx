@@ -4,8 +4,18 @@ import { VisitorTracker } from './components/VisitorTracker';
 import React, { Suspense } from "react";
 
 
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
-
+const serif = Instrument_Serif({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
 
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
