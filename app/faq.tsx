@@ -4,7 +4,22 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, ArrowUpRight, Disc } from 'lucide-react';
 import type { Transition } from "framer-motion";
+import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
 
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-cormorant',
+  display: 'swap',
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-jakarta',
+  display: 'swap',
+});
 const faqData = [
   {
     id: '01',
@@ -43,16 +58,13 @@ export default function CosmeticDentistryFAQ() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <>
-      {/* High-End Editorial Fonts & Subpixel Optimization */}
+    <div className={`${cormorant.variable} ${jakarta.variable}`}>
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
-        
         .font-display-serif {
-          font-family: 'Cormorant Garamond', Georgia, serif;
+          font-family: var(--font-cormorant), Georgia, serif;
         }
         .font-body-sans {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: var(--font-jakarta), sans-serif;
         }
 
         .crisp-rendering {
@@ -224,6 +236,6 @@ export default function CosmeticDentistryFAQ() {
 
         </div>
       </section>
-    </>
+    </div>
   );
 }
