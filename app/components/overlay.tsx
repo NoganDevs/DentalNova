@@ -76,11 +76,10 @@ export default function PlaceholderNotice() {
   };
 
   const wordVariants = {
-    hidden: { opacity: 0, y: 8, filter: "blur(4px)" },
+    hidden: { opacity: 0, y: 8 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
       transition: {
   duration: 0.3,
   ease: [0.16, 1, 0.3, 1] as const,
@@ -94,15 +93,15 @@ export default function PlaceholderNotice() {
         <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6">
           {/* Pure Frosted Glass Backdrop */}
           <motion.div
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
-            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{
   duration: 0.4,
   ease: [0.16, 1, 0.3, 1] as const,
 }}
             onClick={() => setIsOpen(false)}
-            className="absolute inset-0 bg-black/40"
+            className="absolute inset-0 bg-black/40 backdrop-blur-xl"
           />
 
           {/* Clean Glassmorphic Card */}
