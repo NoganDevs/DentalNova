@@ -1,13 +1,23 @@
 // app/layout.tsx
-
+import { Plus_Jakarta_Sans, Instrument_Serif } from 'next/font/google';
 import { VisitorTracker } from './components/VisitorTracker';
 import React, { Suspense } from "react";
 
 
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
-
+const serif = Instrument_Serif({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+
 
 import "./globals.css";
 import "./navbar.css";
@@ -184,17 +194,7 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
