@@ -8,6 +8,8 @@ import { ArrowUpRight, Sparkles } from "lucide-react";
 const textSentence =
   "All visual assets and interface systems showcased here serve as interactive structural placeholders. Built by nogandev as a custom design engineering portfolio—unlinked elements do not yield active destinations.";
 
+const words = textSentence.split(" ");
+
 export default function PlaceholderNotice() {
   const [isOpen, setIsOpen] = useState(false);
 
