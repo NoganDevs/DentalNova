@@ -11,9 +11,12 @@ export function VisitorTracker() {
   useEffect(() => {
     // Prevent duplicate tracking on re-renders in React Strict Mode
     if (hasTracked.current) return;
-    hasTracked.current = true;
 
     const trackVisit = async () => {
+      // Double check to prevent racing calls inside event listeners
+      if (hasTracked.current) return;
+      hasTracked.current = true;
+
       const clientReferrer = document.referrer || '';
       const utmSource = searchParams.get('utm_source') || searchParams.get('ref');
 
@@ -32,7 +35,29 @@ export function VisitorTracker() {
       }
     };
 
-    trackVisit();
+    // If page is already completely loaded, track after browser is idle
+    if (document.readyState === 'complete') {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(() => trackVisit());
+      } else {
+        setTimeout(trackVisit, 0);
+      }
+    } else {
+      // Wait for the full window load event (images, CSS, subresources completely ready)
+      const handleLoad = () => {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(() => trackVisit());
+        } else {
+          trackVisit();
+        }
+      };
+
+      window.addEventListener('load', handleLoad, { once: true });
+
+      return () => {
+        window.removeEventListener('load', handleLoad);
+      };
+    }
   }, [pathname, searchParams]);
 
   return null;
