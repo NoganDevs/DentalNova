@@ -547,11 +547,20 @@ export default function Home() {
               animate="visible"
               className="tooth-scene"
             >
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.7 }} transition={{ delay: 0.4, duration: 1.2 }} className="ring ring-one"></motion.div>
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} transition={{ delay: 0.55, duration: 1.2 }} className="ring ring-two"></motion.div>
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.8 }} transition={{ delay: 0.7, duration: 1.2 }} className="ring ring-three"></motion.div>
-
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.75 }} transition={{ delay: 0.45, duration: 1.5 }} className="tooth-glow"></motion.div>
+              {isMobile ? (
+  <>
+    <div className="ring ring-one"></div>
+    <div className="ring ring-two"></div>
+    <div className="tooth-glow"></div>
+  </>
+) : (
+  <>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.7 }} transition={{ delay: 0.4, duration: 1.2 }} className="ring ring-one"></motion.div>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} transition={{ delay: 0.55, duration: 1.2 }} className="ring ring-two"></motion.div>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.8 }} transition={{ delay: 0.7, duration: 1.2 }} className="ring ring-three"></motion.div>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.75 }} transition={{ delay: 0.45, duration: 1.5 }} className="tooth-glow"></motion.div>
+  </>
+)}
 
             
              <motion.div
