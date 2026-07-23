@@ -16,15 +16,6 @@ export function useToothAnimation() {
 useEffect(() => {
   const check = () => setIsMobile(window.innerWidth < 768); // Tailwind md breakpoint
   check();
-
-useEffect(() => {
-  if (isMobile) {
-    floatX.set(0);
-    floatY.set(0);
-    floatRotate.set(0);
-  }
-}, [isMobile]);
-  
   window.addEventListener("resize", check);
   return () => window.removeEventListener("resize", check);
 }, []);
@@ -34,16 +25,18 @@ useEffect(() => {
   const mouseXVelocity = useVelocity(mouseX);
   const mouseYVelocity = useVelocity(mouseY);
 
-  // Return static hardware styles immediately if on a mobile viewport
-  
-
   // Idle floating targets — layered sines so it doesn't feel robotic
   const floatX = useMotionValue(0);
-  // ... (Keep the rest of your original desktop animation physics calculations here)
-
-
   const floatY = useMotionValue(0);
   const floatRotate = useMotionValue(0);
+
+useEffect(() => {
+  if (isMobile) {
+    floatX.set(0);
+    floatY.set(0);
+    floatRotate.set(0);
+  }
+}, [isMobile]);
 
 useAnimationFrame((t) => {
   if (isMobile) return; // values already zeroed once below; skip all work every frame
