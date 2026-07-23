@@ -425,7 +425,7 @@ export default function Home() {
             className="hero-left"
           >
             {isMobile ? (
-              <div className="hero-badge hero-fade-in">
+              <div className="hero-badge">
                 <p>Trusted Modern Dental Clinic</p>
               </div>
             ) : (
