@@ -3,22 +3,9 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import { ArrowUpRight, ArrowUp, Phone, ShieldCheck, Clock } from 'lucide-react';
-import { Sora, Plus_Jakarta_Sans } from 'next/font/google';
 import type { Easing } from "framer-motion";
 
-const sora = Sora({
-  subsets: ['latin'],
-  variable: '--font-sora',
-  weight: ['400', '600', '700'],
-  display: 'swap',
-});
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-jakarta',
-  weight: ['300', '400', '500', '600'],
-  display: 'swap',
-});
 
 // High-Precision Architectural Easing
 const luxuryEase: Easing = [0.22, 1, 0.36, 1];
