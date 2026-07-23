@@ -593,7 +593,7 @@ export default function Home() {
   {...(isMobile ? {} : tooth.events)}
 >
   <Image
-    src="/tooth.png"
+    src="/tooth.avif"
     alt="3D Tooth"
     width={400}
     height={400}
