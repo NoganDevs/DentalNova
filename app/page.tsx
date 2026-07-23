@@ -1,17 +1,44 @@
-"use client";
-    import { useState, useEffect } from "react";
-    import { motion, AnimatePresence, type Variants } from "framer-motion";
-    import AnimatedCounter from "./components/AnimatedCounter";
-    import FloatingMobileNav from "./components/FloatingMobileNav";
-    import { useToothAnimation } from "./components/animations/animations";
-    import ServicesHeaderSection from "./services";
-    import OurPracticeHeader from "./our_practice";
-    import DentalReviewsSection from "./reviews";
-    import CosmeticDentistryFAQ from "./faq";
-    import FooterContactSection from "./footer";
-    import PlaceholderNotice from "./components/overlay";
-    import Image from 'next/image';
-    import type { HTMLMotionProps } from "framer-motion";
+'use client'; // Required since you use hooks and framer-motion
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
+import Image from 'next/image';
+import type { HTMLMotionProps } from "framer-motion";
+
+// 1. CRITICAL TOP-OF-PAGE COMPONENTS (Keep as standard imports so they load instantly)
+import AnimatedCounter from "./components/AnimatedCounter";
+import FloatingMobileNav from "./components/FloatingMobileNav";
+import { useToothAnimation } from "./components/animations/animations";
+import PlaceholderNotice from "./components/overlay";
+
+// 2. DYNAMIC IMPORTS FOR LOWER SECTIONS (Next.js splits these into separate, lazy-loaded files)
+import dynamic from 'next/dynamic';
+
+const ServicesHeaderSection = dynamic(() => import("./services"), {
+  loading: () => <div className="h-[500px] w-full animate-pulse bg-slate-50 rounded-2xl" />, // Skeleton prevents layout shift
+  ssr: false // Prevents heavy Framer Motion/Client logic from bloating initial server load
+});
+
+const OurPracticeHeader = dynamic(() => import("./our_practice"), {
+  loading: () => <div className="h-[600px] w-full animate-pulse bg-slate-50" />,
+  ssr: false
+});
+
+const DentalReviewsSection = dynamic(() => import("./reviews"), {
+  loading: () => <div className="h-[400px] w-full animate-pulse bg-slate-50" />,
+  ssr: false
+});
+
+const CosmeticDentistryFAQ = dynamic(() => import("./faq"), {
+  loading: () => <div className="h-[500px] w-full animate-pulse bg-slate-50" />,
+  ssr: false
+});
+
+const FooterContactSection = dynamic(() => import("./footer"), {
+  loading: () => <div className="h-[400px] w-full animate-pulse bg-slate-50" />,
+  ssr: false
+});
+
     
     export default function Home() {
       const [isScrolled, setIsScrolled] = useState(false);
