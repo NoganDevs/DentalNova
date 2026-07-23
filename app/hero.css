@@ -546,10 +546,8 @@
   .stat-card,
   .primary-button,
   .secondary-button {
-    animation: none;
     transition: none;
     transform: none;
-    opacity: 1;
     filter: none;
   }
 
