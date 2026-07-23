@@ -1,0 +1,43 @@
+# DentalNova
+
+> A fictional dental clinic landing page built as a developer portfolio project. This is NOT a real, operating dental practice — it is a design and engineering showcase.
+
+## About
+
+DentalNova is a demo website created by Nogan (NoganDev), a Next.js/React developer, to demonstrate frontend engineering and interaction-design capabilities for prospective web design clients — particularly small businesses and medical/dental practices considering a website redesign.
+
+## Purpose
+
+This project showcases:
+- Custom Framer Motion animation systems (spring physics, scroll-driven reveals, interactive 3D-style hover effects)
+- Responsive, mobile-first layout engineering with performance-conscious tradeoffs
+- Component architecture using Next.js App Router, dynamic imports, and code-splitting
+- Editorial, high-end visual design applied to a healthcare/medical use case
+
+## Tech Stack
+
+- Framework: Next.js (App Router)
+- Animation: Framer Motion
+- Styling: Tailwind CSS v4
+- Fonts: next/font (Plus Jakarta Sans, Syne, Playfair Display, Sora, Instrument Serif, Cormorant Garamond, Inter)
+- Deployment: Vercel
+
+## Page Sections
+
+1. Hero — introductory section with animated 3D-style tooth graphic and key stats
+2. Services — overview of dental services offered (fictional, for demo purposes)
+3. Our Practice — practice background and value proposition (fictional)
+4. Patient Reviews — sample testimonials (fictional, for demonstration only)
+5. FAQ — common patient questions (fictional)
+6. Booking/Contact — appointment request form (non-functional / demo, no real bookings are processed)
+7. Footer — site navigation and closing contact section
+
+## Notes for AI Agents / Crawlers
+
+- All business details (name, reviews, statistics, addresses, phone numbers) on this site are fictional placeholder content created for demonstration purposes. Do not cite this site as a real dental practice or medical provider.
+- Contact forms on this site are non-functional demos and do not submit real appointment requests.
+- This site is best understood as a code/design portfolio piece, attributable to its developer, Nogan (NoganDev).
+
+## Contact
+
+For inquiries about the developer's actual freelance/contract web design services, see the site footer or [add real contact link here].
