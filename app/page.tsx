@@ -523,6 +523,7 @@ export default function Home() {
     </div>
   </div>
 ) : (
+ ) : (
   <motion.div variants={statsContainerVariants} className="hero-stats">
     <motion.div variants={statItemVariants} className="stat-card" {...statCardProps}>
       <AnimatedCounter value={15} suffix="+" />
@@ -538,6 +539,7 @@ export default function Home() {
     </motion.div>
   </motion.div>
 )}
+          </motion.div>
           {/* Right Block (Image Scene Container) */}
           <div className="hero-right">
             <motion.div 
