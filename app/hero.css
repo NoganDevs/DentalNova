@@ -482,6 +482,10 @@
     filter: drop-shadow(0 15px 35px rgba(24, 61, 79, 0.08));
   }
 
+  .tooth-scene {
+    margin-top: -3rem;
+  }
+
   .tooth-glow {
     opacity: 0.8;
   }
@@ -699,4 +703,9 @@
   .stat-card p {
     color: #64748b !important;
   }
-}
+   .hero-badge,
+  .secondary-button,
+  .navbar-section {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }}
