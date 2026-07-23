@@ -434,7 +434,7 @@ export default function Home() {
               </motion.div>
             )}
 
-            <motion.div variants={isMobile ? undefined : itemVariants} className={isMobile ? "hero-heading hero-fade-in" : "hero-heading"}>
+            <motion.div variants={isMobile ? undefined : itemVariants} className={isMobile ? "hero-heading" : "hero-heading"}>
               <h2>
                 Creating
                 <br />
@@ -450,7 +450,7 @@ export default function Home() {
             </motion.div>
 
             {isMobile ? (
-              <div className="hero-actions hero-fade-in">
+              <div className="hero-actions">
                 <button
                   onClick={() => {
                     window.history.replaceState(null, "", "#booking");
@@ -508,7 +508,7 @@ export default function Home() {
             )}
 
 {isMobile ? (
-  <div className="hero-stats hero-fade-in">
+  <div className="hero-stats">
     <div className="stat-card">
       <AnimatedCounter value={15} suffix="+" />
       <p>Years Experience</p>
