@@ -521,9 +521,8 @@ export default function Home() {
       <AnimatedCounter value={4.9} suffix="★" decimals={1} />
       <p>Average Rating</p>
     </div>
-  </div>
+</div>
 ) : (
- ) : (
   <motion.div variants={statsContainerVariants} className="hero-stats">
     <motion.div variants={statItemVariants} className="stat-card" {...statCardProps}>
       <AnimatedCounter value={15} suffix="+" />
