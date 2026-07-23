@@ -620,3 +620,83 @@
   transform: translateY(0);
   opacity: 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   HARD OVERRIDE — Force hero text visibility on mobile/tablet
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-left,
+  .hero-badge,
+  .hero-badge p,
+  .hero-badge span,
+  .hero-heading,
+  .hero-heading h2,
+  .hero-heading h2 span,
+  .hero-heading p,
+  .hero-actions,
+  .hero-stats,
+  .stat-card,
+  .stat-card h3,
+  .stat-card p {
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+    color: initial !important;
+  }
+
+  .hero-heading h2 {
+    color: #0d151c !important;
+  }
+
+  .hero-heading h2 span {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: #183d4f !important;
+    color: #183d4f !important;
+  }
+
+  .hero-heading p {
+    color: #52606d !important;
+  }
+
+  .hero-badge p {
+    color: #183d4f !important;
+  }
+
+  .stat-card h3 {
+    color: #183d4f !important;
+  }
+
+  .stat-card p {
+    color: #64748b !important;
+  }
+}
