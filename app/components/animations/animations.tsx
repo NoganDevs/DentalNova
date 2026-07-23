@@ -21,13 +21,44 @@ useEffect(() => {
   return () => window.removeEventListener("resize", check);
 }, []);
   // Raw mouse position (-1 to 1)
-  const mouseX = useMotionValue(0);
+    const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const mouseXVelocity = useVelocity(mouseX);
   const mouseYVelocity = useVelocity(mouseY);
 
+  // Return static hardware styles immediately if on a mobile viewport
+  if (isMobile) {
+    return {
+      ref,
+      style: {
+        rotateX: 0,
+        rotateY: 0,
+        rotateZ: 0,
+        x: 0,
+        y: 0,
+        scaleX: 1,
+        scaleY: 1,
+        filter: "drop-shadow(0px 14px 22px rgba(15, 23, 42, 0.28))",
+        willChange: "transform",
+      },
+      glow: { x: 0, y: 0 },
+      entrance: {
+        initial: { opacity: 0, y: 20 },
+        animate: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.3, ease: "easeOut" },
+        },
+      },
+      events: {},
+    };
+  }
+
   // Idle floating targets — layered sines so it doesn't feel robotic
   const floatX = useMotionValue(0);
+  // ... (Keep the rest of your original desktop animation physics calculations here)
+
+
   const floatY = useMotionValue(0);
   const floatRotate = useMotionValue(0);
 
@@ -155,15 +186,16 @@ useEffect(() => {
 },
     glow: { x: glowX, y: glowY },
     entrance: {
-      initial: { opacity: 0, scale: 0.6, rotate: -12, y: 40 },
+          entrance: {
+      initial: { opacity: 0, scale: 0.98, y: 15 },
       animate: {
         opacity: 1,
         scale: 1,
-        rotate: 0,
         y: 0,
-        transition: { type: "spring", stiffness: 260, damping: 18, delay: 0.1 },
+        transition: { type: "spring", stiffness: 200, damping: 22, delay: 0.05 },
       },
     },
+
     events: {
       onMouseMove: handleMouseMove,
       onMouseLeave: handleMouseLeave,
