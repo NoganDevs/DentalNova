@@ -446,59 +446,95 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="hero-actions">
-              <motion.button
-                onClick={() => {
-  window.history.replaceState(null, "", "#booking");
-  document.getElementById("booking")?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-}}
-               <motion.button
-                onClick={() => {
-                  window.history.replaceState(null, "", "#booking");
-                  document.getElementById("booking")?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
-                }}
-                className="primary-button"
-                {...(isMobile ? {} : primaryButtonProps)}
-              >
-                Book Appointment
-              </motion.button>
-              <motion.button 
-                onClick={() => {
-                  window.history.replaceState(null, "", "#services");
-                  document.getElementById("services")?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
-                }}
-                className="secondary-button"
-                {...(isMobile ? {} : secondaryButtonProps)}
-              >
-                Explore Services
-              </motion.button>
-            </motion.div>
+            {isMobile ? (
+              <div className="hero-actions hero-fade-in">
+                <button
+                  onClick={() => {
+                    window.history.replaceState(null, "", "#booking");
+                    document.getElementById("booking")?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }}
+                  className="primary-button"
+                >
+                  Book Appointment
+                </button>
+                <button
+                  onClick={() => {
+                    window.history.replaceState(null, "", "#services");
+                    document.getElementById("services")?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }}
+                  className="secondary-button"
+                >
+                  Explore Services
+                </button>
+              </div>
+            ) : (
+              <motion.div variants={itemVariants} className="hero-actions">
+                <motion.button
+                  onClick={() => {
+                    window.history.replaceState(null, "", "#booking");
+                    document.getElementById("booking")?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }}
+                  className="primary-button"
+                  {...primaryButtonProps}
+                >
+                  Book Appointment
+                </motion.button>
+                <motion.button
+                  onClick={() => {
+                    window.history.replaceState(null, "", "#services");
+                    document.getElementById("services")?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }}
+                  className="secondary-button"
+                  {...secondaryButtonProps}
+                >
+                  Explore Services
+                </motion.button>
+              </motion.div>
+            )}
 
-            <motion.div variants={statsContainerVariants} className="hero-stats">
-              <motion.div variants={statItemVariants} className="stat-card" {...(isMobile ? {} : statCardProps)}>
-                <AnimatedCounter value={15} suffix="+" />
-                <p>Years Experience</p>
+{isMobile ? (
+              <div className="hero-stats hero-fade-in">
+                <div className="stat-card">
+                  <AnimatedCounter value={15} suffix="+" />
+                  <p>Years Experience</p>
+                </div>
+                <div className="stat-card">
+                  <AnimatedCounter value={8} suffix="K+" />
+                  <p>Happy Patients</p>
+                </div>
+                <div className="stat-card">
+                  <AnimatedCounter value={4.9} suffix="★" decimals={1} />
+                  <p>Average Rating</p>
+                </div>
+              </div>
+            ) : (
+              <motion.div variants={statsContainerVariants} className="hero-stats">
+                <motion.div variants={statItemVariants} className="stat-card" {...statCardProps}>
+                  <AnimatedCounter value={15} suffix="+" />
+                  <p>Years Experience</p>
+                </motion.div>
+                <motion.div variants={statItemVariants} className="stat-card" {...statCardProps}>
+                  <AnimatedCounter value={8} suffix="K+" />
+                  <p>Happy Patients</p>
+                </motion.div>
+                <motion.div variants={statItemVariants} className="stat-card" {...statCardProps}>
+                  <AnimatedCounter value={4.9} suffix="★" decimals={1} />
+                  <p>Average Rating</p>
+                </motion.div>
               </motion.div>
-              <motion.div variants={statItemVariants} className="stat-card" {...(isMobile ? {} : statCardProps)}>
-                <AnimatedCounter value={8} suffix="K+" />
-                <p>Happy Patients</p>
-              </motion.div>
-              <motion.div variants={statItemVariants} className="stat-card" {...(isMobile ? {} : statCardProps)}>
-                <AnimatedCounter value={4.9} suffix="★" decimals={1} />
-                <p>Average Rating</p>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-
+            )}
           {/* Right Block (Image Scene Container) */}
           <div className="hero-right">
             <motion.div 
