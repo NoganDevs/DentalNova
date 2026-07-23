@@ -17,6 +17,14 @@ useEffect(() => {
   const check = () => setIsMobile(window.innerWidth < 768); // Tailwind md breakpoint
   check();
 
+useEffect(() => {
+  if (isMobile) {
+    floatX.set(0);
+    floatY.set(0);
+    floatRotate.set(0);
+  }
+}, [isMobile]);
+  
   window.addEventListener("resize", check);
   return () => window.removeEventListener("resize", check);
 }, []);
@@ -37,13 +45,8 @@ useEffect(() => {
   const floatY = useMotionValue(0);
   const floatRotate = useMotionValue(0);
 
-  useAnimationFrame((t) => {
-  if (isMobile) {
-    floatX.set(0);
-    floatY.set(0);
-    floatRotate.set(0);
-    return;
-  }
+useAnimationFrame((t) => {
+  if (isMobile) return; // values already zeroed once below; skip all work every frame
 
   const time = t / 1000;
 
