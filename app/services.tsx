@@ -243,7 +243,7 @@ export default function ServicesHeaderSection() {
   className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-200"
 >
   <Image
-  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop"
+  src="https://plus.unsplash.com/premium_photo-1682097288491-7e926a30cd0b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   alt="Precision Dental Implants"
   width={800}
   height={800}
