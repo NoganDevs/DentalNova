@@ -546,15 +546,20 @@ onClick={() => {
                   style={tooth.style}
                   {...tooth.events}
                 >
-                  <Image
-    src="/tooth.png"
-    alt="3D Tooth"
-    width={800}
-    height={800}
-    sizes="(max-width: 480px) 250px, (max-width: 1024px) 280px, 400px"
-    priority
-    className="object-contain"
-  />
+                  import Image from "next/image";
+
+// ... inside your component
+<Image
+  src="/tooth.png"
+  alt="3D Tooth"
+  width={800}
+  height={800}
+  priority // <-- Tells Next.js to preload this asset immediately
+  fetchPriority="high" // <-- Signals the browser network queue to prioritize this over JS bundles
+  decoding="async"
+  className="object-contain"
+  sizes="(max-width: 480px) 250px, (max-width: 1024px) 280px, 400px"
+/>
                 </motion.div>
               </motion.div>
 
