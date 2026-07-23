@@ -81,39 +81,36 @@ export const textReveal: Variants = {
 export const imageRevealLeft: Variants = {
   hidden: {
     opacity: 0,
-    x: -32,
-    scale: 0.95,
-    rotate: -1.5,
+    x: -20,
+    scale: 0.98,
   },
   show: {
     opacity: 1,
     x: 0,
     scale: 1,
-    rotate: 0,
     transition: {
       ...SPRING_SMOOTH,
-      opacity: { duration: 0.5, ease: EASE_CUSTOM },
+      opacity: { duration: 0.4, ease: EASE_CUSTOM },
     },
   },
 };
 export const imageRevealRight: Variants = {
   hidden: {
     opacity: 0,
-    x: 32,
-    scale: 0.95,
-    rotate: 1.5,
+    x: 20,
+    scale: 0.98,
   },
   show: {
     opacity: 1,
     x: 0,
     scale: 1,
-    rotate: 0,
     transition: {
       ...SPRING_SMOOTH,
-      opacity: { duration: 0.5, ease: EASE_CUSTOM },
+      opacity: { duration: 0.4, ease: EASE_CUSTOM },
     },
   },
 };
+
 
 /* ---------- Content ---------- */
 
@@ -152,16 +149,17 @@ export const contentRight: Variants = {
 export const fadeScale: Variants = {
   hidden: {
     opacity: 0,
-    scale: 0.96,
-    y: 16,
+    scale: 0.99,
+    y: 8,
   },
   show: {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: SPRING_SMOOTH,
+    transition: { duration: 0.4, ease: EASE_CUSTOM },
   },
 };
+
 
 export const listItem: Variants = {
   hidden: {
@@ -213,25 +211,23 @@ export const mobileContent: Variants = {
 
 export const imageHover = {
   whileHover: {
-    scale: 1.02,
-    y: -2,
-    transition: SPRING_SNAPPY,
+    scale: 1.01,
+    transition: { duration: 0.2 },
   },
   whileTap: {
-    scale: 0.98,
-    transition: SPRING_SNAPPY,
+    scale: 0.99,
+    transition: { duration: 0.1 },
   },
 };
 
 export const buttonHover = {
   whileHover: {
-    y: -2,
     scale: 1.02,
-    transition: SPRING_SNAPPY,
+    transition: { duration: 0.2 },
   },
   whileTap: {
-    scale: 0.96,
-    transition: SPRING_SNAPPY,
+    scale: 0.97,
+    transition: { duration: 0.1 },
   },
 };
 
