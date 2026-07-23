@@ -109,7 +109,7 @@ export default function ServicesHeaderSection() {
   {...imageHoverFx}
   variants={imageRevealLeft}
   initial="hidden"
-  whileInView="floating"
+  whileInView="show"
   viewport={viewport}
       className="w-full lg:w-1/2 transform-gpu will-change-transform"
     >
