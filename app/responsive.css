@@ -282,4 +282,11 @@
   .stat-card p {
     font-size: 0.7rem !important;
   }
-}
+  .hero-right,
+.hero-badge,
+.hero-heading h2,
+.hero-heading p,
+.hero-actions,
+.hero-stats {
+  animation: simpleFadeIn 0.35s ease-out forwards !important;
+}}
