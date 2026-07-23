@@ -105,42 +105,41 @@ export default function FloatingMobileNav() {
                   className="relative flex h-11 w-11 items-center justify-center rounded-full"
                 >
                   {active && (
-                    <motion.div
-                      layoutId="mobile-active-pill"
-                      transition={{
-                        type: "spring",
-                        stiffness: 520,
-                        damping: 34,
-                      }}
-                      className="
-                        absolute
-                        inset-0
-                        rounded-full
+  <motion.div
+    initial={{ scale: 0.8, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    transition={{
+      type: "spring",
+      stiffness: 300,
+      damping: 25,
+    }}
+    className="
+      absolute
+      inset-0
+      rounded-full
+      bg-white/80
+      border
+      border-white/90
+      shadow-[0_4px_12px_rgba(0,0,0,0.05)]
+      will-change-transform
+    "
+  />
+)}
 
-                        bg-white/80
-
-                        border
-                        border-white/90
-
-                        shadow-[0_4px_16px_rgba(255,255,255,0.45)]
-                      "
-                    />
-                  )}
 
                   <motion.div
-                    whileTap={{ scale: 0.9 }}
-                    animate={{
-                      scale: active ? 1.08 : 1,
-                      y: active ? -1 : 0,
-                      rotate: active ? 0 : 0,
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 450,
-                      damping: 22,
-                    }}
-                    className="relative z-10"
-                  >
+  whileTap={{ scale: 0.95 }}
+  animate={{
+    scale: active ? 1.05 : 1,
+  }}
+  transition={{
+    type: "spring",
+    stiffness: 300,
+    damping: 25,
+  }}
+  className="relative z-10 will-change-transform"
+>
+
                     <Image
   src={item.iconSrc}
   alt={item.label}
