@@ -33,6 +33,8 @@ const itemVariants: Variants = {
   },
 };
 
+import { sora, jakarta } from './layout';
+
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
 
