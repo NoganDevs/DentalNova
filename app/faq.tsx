@@ -39,9 +39,10 @@ const springTransition: Transition = {
   damping: 28,
 };
 
+import { cormorant, jakarta } from './layout';
+
 export default function CosmeticDentistryFAQ() {
   const [activeIndex, setActiveIndex] = useState(0);
-
   return (
     <div className={`${cormorant.variable} ${jakarta.variable}`}>
       <style jsx global>{`
@@ -51,14 +52,12 @@ export default function CosmeticDentistryFAQ() {
         .font-body-sans {
           font-family: var(--font-jakarta), sans-serif;
         }
-
         .crisp-rendering {
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: optimizeLegibility;
         }
       `}</style>
-
       <section id="faqs" className="w-full bg-white text-[#0f172a] font-body-sans py-28 lg:py-40 px-6 sm:px-12 lg:px-24 overflow-hidden crisp-rendering">
         <div className="max-w-[1380px] mx-auto">
           
