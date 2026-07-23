@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Syne, Plus_Jakarta_Sans, Cormorant_Garamond } from 'next/font/google';
+
 // 1. Icons imported strictly from lucide-react
 import { ArrowUpRight, Sparkles, ShieldCheck, UserCheck, LucideIcon } from 'lucide-react';
 
@@ -23,24 +23,7 @@ import Image from 'next/image';
 
 const MotionImage = motion(Image);
 
-const syne = Syne({
-  subsets: ['latin'],
-  weight: ['600', '700', '800'],
-  variable: '--font-syne',
-});
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-jakarta',
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  style: ['italic', 'normal'],
-  variable: '--font-cormorant',
-});
 
 interface PillarItem {
   num: string;
