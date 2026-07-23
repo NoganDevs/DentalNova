@@ -61,17 +61,7 @@ export default function DentalNovaHeader() {
   };
   return (
     <>
-      <style jsx global>{`
-        @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 
-        .font-cabinet {
-          font-family: 'Cabinet Grotesk', sans-serif;
-        }
-        .font-inter {
-          font-family: 'Inter', sans-serif;
-        }
-      `}</style>
 
       <section id="booking" className="w-full bg-[#f8faf8] text-[#0f172a] font-inter pt-32 pb-24 px-6 sm:px-12 lg:px-20 select-none overflow-hidden">
         <motion.div
