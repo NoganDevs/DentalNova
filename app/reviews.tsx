@@ -60,23 +60,14 @@ const REVIEWS: Review[] = [
     verified: true,
   },
 ];
+import { playfair, jakarta } from './layout';
 
 export default function DentalReviewsSection() {
   const [activeReview, setActiveReview] = useState<Review>(REVIEWS[0]);
   const [mapLoaded, setMapLoaded] = useState(false);
   const googleMapsUrl = "https://maps.google.com/?q=740+Park+Avenue+New+York";
-
 return (
     <div className={`${playfair.variable} ${jakarta.variable}`}>
-      <style jsx global>{`
-        .font-playfair {
-          font-family: var(--font-playfair), Georgia, serif;
-        }
-        .font-sans-custom {
-          font-family: var(--font-jakarta), -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-      `}</style>
-
       <section
         id="patient-reviews"
         className="w-full py-20 lg:py-32 px-6 sm:px-10 lg:px-20 font-sans-custom text-neutral-900 selection:bg-neutral-900 selection:text-white"
