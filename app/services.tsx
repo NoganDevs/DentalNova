@@ -121,8 +121,7 @@ export default function ServicesHeaderSection() {
           src="/images/image-1.avif" 
           alt="Porcelain Veneers"
           className="w-full h-full object-cover object-center"
-          width={800}
-          height={800}
+          fill
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
       </motion.div>
@@ -245,8 +244,7 @@ export default function ServicesHeaderSection() {
   <Image
   src="/images/image-2.avif"
   alt="Precision Dental Implants"
-  width={800}
-  height={800}
+  fill
   className="w-full h-full object-contain object-center"
     sizes="(max-width: 1024px) 100vw, 50vw"    
 />
@@ -276,11 +274,10 @@ export default function ServicesHeaderSection() {
   className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-200"
 >
         <Image
-          src="/images/image-3" 
+          src="/images/image-3.avif" 
           alt="Professional Enamel Whitening"
           className="w-full h-full object-cover object-center"
-          width={800}
-  height={800}
+          fill
           sizes="(max-width: 1024px) 100vw, 50vw"
 
         />
