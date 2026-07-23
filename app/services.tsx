@@ -27,15 +27,13 @@ import {
   ctaHoverFx,
   cardHoverFx,
 } from "./components/animations/interactions";
-
+import { jakarta, syne } from './layout';
 export default function ServicesHeaderSection() {
   return (
-
     
-    <div className={`${plusJakarta.variable} ${syne.variable}`}>
+    <div className={`${jakarta.variable} ${syne.variable}`}>
        
-      <section id="services" className="w-full overflow-hidden bg-[#f8faf8] px-5 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 font-[family-name:var(--font-plus-jakarta)] text-slate-900">
-
+      <section id="services" className="w-full overflow-hidden bg-[#f8faf8] px-5 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 font-[family-name:var(--font-jakarta)] text-slate-900">
       
         <div className="mx-auto max-w-7xl flex flex-col gap-8 lg:flex-row lg:items-end">          
           {/* Left Column: Eyebrow Tag & Main Headline */}
