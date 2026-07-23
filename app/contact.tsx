@@ -10,14 +10,7 @@ import {
   MapPin, 
   Phone 
 } from 'lucide-react';
-import { Inter } from 'next/font/google';
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-inter',
-  display: 'swap',
-});
 
 const springPhysics: Transition = {
   type: "spring",
