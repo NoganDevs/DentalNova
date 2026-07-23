@@ -1,5 +1,6 @@
 // app/api/track/route.ts
 import { NextResponse } from 'next/server';
+import { unstable_after as after } from 'next/server'; // Or import { after } from 'next/server' depending on Next.js version
 import { supabaseServer } from '@/app/lib/supabaseServer';
 
 function parseSource(referrer: string, utmSource: string | null): string {
@@ -31,23 +32,32 @@ export async function POST(request: Request) {
     const headerReferrer = reqHeaders.get('referer') || '';
     const userAgent = reqHeaders.get('user-agent') || 'unknown';
 
-    // Prioritize client-side referrer (document.referrer), fall back to HTTP header
     const effectiveReferrer = clientReferrer || headerReferrer;
     const detectedSource = parseSource(effectiveReferrer, utmSource);
 
-    const { error } = await supabaseServer.from('visitor_tracks').insert({
-      referrer: effectiveReferrer || 'direct',
-      source: detectedSource,
-      path: clientPath || '/',
-      user_agent: userAgent,
-    });
+    // Run database insert asynchronously AFTER response is returned to client
+    const logTask = async () => {
+      const { error } = await supabaseServer.from('visitor_tracks').insert({
+        referrer: effectiveReferrer || 'direct',
+        source: detectedSource,
+        path: clientPath || '/',
+        user_agent: userAgent,
+      });
 
-    if (error) {
-      console.error('Supabase track error:', error);
-      return NextResponse.json({ error: 'Failed to record visit' }, { status: 500 });
+      if (error) {
+        console.error('Supabase track error:', error);
+      }
+    };
+
+    // Use Next.js native background task handler if available, otherwise fire-and-forget
+    if (typeof after === 'function') {
+      after(logTask);
+    } else {
+      logTask().catch((err) => console.error('Tracking insert background error:', err));
     }
 
-    return NextResponse.json({ success: true, source: detectedSource });
+    // Immediately respond to the client so connection closes instantly
+    return NextResponse.json({ success: true, source: detectedSource }, { status: 200 });
   } catch (err) {
     console.error('Tracking API error:', err);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
