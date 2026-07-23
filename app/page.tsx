@@ -40,8 +40,20 @@ const FooterContactSection = dynamic(() => import("./footer"), {
 });
 
     
-    export default function Home() {
-      const [isScrolled, setIsScrolled] = useState(false);
+   function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
+}
+
+export default function Home() {
+  const isMobile = useIsMobile();
+  const [isScrolled, setIsScrolled] = useState(false);
       const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
       const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     
@@ -237,13 +249,13 @@ const FooterContactSection = dynamic(() => import("./footer"), {
           ========================= */}
           <section className="navbar-section">
             {/* Container transitions are now entirely controlled via spring physics */}
-            <motion.div 
-              layout
-              className="navbar-container"
-              variants={navbarVariants}
-              animate={isScrolled ? "scrolled" : "static"}
-              transition={{ type: "spring", stiffness: 180, damping: 24, mass: 1.1 }}
-            >
+           <motion.div 
+  layout={!isMobile}
+  className="navbar-container"
+  variants={navbarVariants}
+  animate={isMobile ? "static" : (isScrolled ? "scrolled" : "static")}
+  transition={isMobile ? { duration: 0 } : { type: "spring", stiffness: 180, damping: 24, mass: 1.1 }}
+>
               <motion.div layout="position" className="navbar-logo">
                 <h1>DentalNova</h1>
               </motion.div>
@@ -264,7 +276,7 @@ const FooterContactSection = dynamic(() => import("./footer"), {
                       style={{ position: "relative", zIndex: 1 }}
                     >
                       {link.label}
-                      {hoveredIndex === index && (
+                      {!isMobile && hoveredIndex === index && (
                         <motion.span
                           layoutId="nav-hover-pill"
                           style={{
@@ -286,28 +298,45 @@ const FooterContactSection = dynamic(() => import("./footer"), {
                 </AnimatePresence>
               </motion.nav>
     
-              <AnimatePresence>
-                {isScrolled && (
-                  <motion.button
-  layout="position"
-  className="navbar-booking-btn"
-onClick={() => {
-  window.history.replaceState(null, "", "#booking");
-  document.getElementById("booking")?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-}}
-  initial={{ opacity: 0, scale: 0.85, x: 15, width: 0 }}
-  animate={{ opacity: 1, scale: 1, x: 0, width: "auto" }}
-  exit={{ opacity: 0, scale: 0.85, x: 15, width: 0 }}
-  transition={{ type: "spring", stiffness: 300, damping: 22 }}
-  style={{ overflow: "hidden", whiteSpace: "nowrap" }}
->
-  Book Appointment
-</motion.button>
-                )}
-              </AnimatePresence>
+              {isMobile ? (
+                isScrolled && (
+                  <button
+                    className="navbar-booking-btn"
+                    onClick={() => {
+                      window.history.replaceState(null, "", "#booking");
+                      document.getElementById("booking")?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }}
+                  >
+                    Book Appointment
+                  </button>
+                )
+              ) : (
+                <AnimatePresence>
+                  {isScrolled && (
+                    <motion.button
+                      layout="position"
+                      className="navbar-booking-btn"
+                      onClick={() => {
+                        window.history.replaceState(null, "", "#booking");
+                        document.getElementById("booking")?.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
+                      }}
+                      initial={{ opacity: 0, scale: 0.85, x: 15, width: 0 }}
+                      animate={{ opacity: 1, scale: 1, x: 0, width: "auto" }}
+                      exit={{ opacity: 0, scale: 0.85, x: 15, width: 0 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                      style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+                    >
+                      Book Appointment
+                    </motion.button>
+                  )}
+                </AnimatePresence>
+              )}
 
               {/* Mobile menu toggle */}
               <button
@@ -315,84 +344,43 @@ onClick={() => {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle menu"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <motion.path
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    variants={{
-                      closed: { d: "M 4 6 L 20 6" },
-                      open: { d: "M 4 20 L 20 4" }
-                    }}
-                    animate={isMobileMenuOpen ? "open" : "closed"}
-                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                  />
-                  <motion.path
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    d="M 4 12 L 20 12"
-                    variants={{
-                      closed: { opacity: 1, scale: 1 },
-                      open: { opacity: 0, scale: 0 }
-                    }}
-                    animate={isMobileMenuOpen ? "open" : "closed"}
-                    transition={{ duration: 0.2 }}
-                  />
-                  <motion.path
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    variants={{
-                      closed: { d: "M 4 18 L 20 18" },
-                      open: { d: "M 4 4 L 20 20" }
-                    }}
-                    animate={isMobileMenuOpen ? "open" : "closed"}
-                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                  />
-                </svg>
+                {isMobileMenuOpen ? (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M 4 20 L 20 4" />
+                    <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M 4 4 L 20 20" />
+                  </svg>
+                ) : (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M 4 6 L 20 6" />
+                    <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M 4 12 L 20 12" />
+                    <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M 4 18 L 20 18" />
+                  </svg>
+                )}
               </button>
             </motion.div>
 
             {/* Mobile menu drawer overlay */}
-            <AnimatePresence>
-              {isMobileMenuOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: "-100%" }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: "-100%" }}
-                  transition={{ type: "spring", stiffness: 260, damping: 30 }}
-                  className="mobile-menu-drawer"
-                  style={{ pointerEvents: "auto" }}
-                >
-                  <div className="mobile-menu-links">
-                    {navLinks.map((link, index) => (
-                      <motion.a
-                        key={index}
-                        href={link.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 15 }}
-                        transition={{ delay: index * 0.08, type: "spring", stiffness: 300, damping: 24 }}
-                      >
-                        {link.label}
-                      </motion.a>
-                    ))}
-                    <motion.button 
-                      className="mobile-booking-btn"
+            {isMobileMenuOpen && (
+              <div className="mobile-menu-drawer mobile-menu-drawer-open" style={{ pointerEvents: "auto" }}>
+                <div className="mobile-menu-links">
+                  {navLinks.map((link, index) => (
+                    
+                      key={index}
+                      href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ delay: navLinks.length * 0.08, type: "spring", stiffness: 300, damping: 24 }}
                     >
-                      Book Appointment
-                    </motion.button>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                      {link.label}
+                    </a>
+                  ))}
+                  <button 
+                    className="mobile-booking-btn"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Book Appointment
+                  </button>
+                </div>
+              </div>
+            )}
           </section>
 
       {/* =========================
@@ -541,20 +529,13 @@ onClick={() => {
   }}
 >
                 <motion.div
-                  ref={tooth.ref}
-                  className="tooth-wrapper"
-                  style={tooth.style}
-                  {...tooth.events}
-                >
-
-<motion.div
   ref={tooth.ref}
   className="tooth-wrapper"
-  style={tooth.style}
-  {...tooth.events}
+  style={isMobile ? undefined : tooth.style}
+  {...(isMobile ? {} : tooth.events)}
 >
   <Image
-    src="/tooth.avif"
+    src="/tooth.png"
     alt="3D Tooth"
     width={400}
     height={400}
@@ -565,7 +546,6 @@ onClick={() => {
     sizes="(max-width: 480px) 250px, (max-width: 1024px) 280px, 400px"
   />
 </motion.div>
-                </motion.div>
               </motion.div>
 
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }} className="floating-plus plus-1">+</motion.div>
