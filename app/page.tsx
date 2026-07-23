@@ -546,9 +546,7 @@ onClick={() => {
                   style={tooth.style}
                   {...tooth.events}
                 >
-                  import Image from "next/image";
 
-// ... inside your component
 <motion.div
   ref={tooth.ref}
   className="tooth-wrapper"
