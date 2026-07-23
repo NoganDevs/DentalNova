@@ -1,6 +1,6 @@
 // app/api/track/route.ts
 import { NextResponse } from 'next/server';
-import { unstable_after as after } from 'next/server'; // Or import { after } from 'next/server' depending on Next.js version
+import { after } from 'next/server'; // Or import { after } from 'next/server' depending on Next.js version
 import { supabaseServer } from '@/app/lib/supabaseServer';
 
 function parseSource(referrer: string, utmSource: string | null): string {
