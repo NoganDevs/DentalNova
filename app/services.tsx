@@ -229,27 +229,27 @@ export default function ServicesHeaderSection() {
     </motion.div>
 
     {/* Right Column: Clean Image (Permanent Right Position) */}
-    <motion.div
+   <motion.div
   {...imageHoverFx}
   variants={imageRevealLeft}
   initial="hidden"
   whileInView="show"
   viewport={viewport}
-      className="w-full lg:w-1/2 transform-gpu will-change-transform"
-    >
-<motion.div
-  {...cardHoverFx}
-  className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-200"
+  className="w-full lg:w-1/2 transform-gpu will-change-transform"
 >
-  <Image
-  src="/images/image-2.avif"
-  alt="Precision Dental Implants"
-  fill
-  className="w-full h-full object-contain object-center"
-    sizes="(max-width: 1024px) 100vw, 50vw"    
-/>
+  <motion.div
+    {...cardHoverFx}
+    className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-200"
+  >
+    <Image
+      src="/images/image-2.avif"
+      alt="Precision Dental Implants"
+      fill
+      sizes="(max-width: 1024px) 100vw, 50vw"
+      className="object-cover object-center"
+    />
+  </motion.div>
 </motion.div>
-    </motion.div>
 
   </div>
 
