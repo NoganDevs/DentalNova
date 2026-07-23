@@ -51,7 +51,7 @@ const PILLARS: PillarItem[] = [
     icon: ShieldCheck,
   },
 ];
-
+import { syne, jakarta, cormorant } from './layout';
 export default function OurPracticeHeader() {
   return (
     <section
