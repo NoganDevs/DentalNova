@@ -621,11 +621,11 @@ export default function Home() {
             </motion.div>
 
           </div>
-
         </div>
-          </div>
-        <div className="hero-bottom-fade"></div>
-      </section>
+      </div>
+
+      <div className="hero-bottom-fade"></div>
+    </section>
 
 
   
