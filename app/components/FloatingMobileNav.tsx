@@ -60,29 +60,31 @@ export default function FloatingMobileNav() {
           }}
         >
           <nav
-            className="
-              pointer-events-auto
-              relative
-              flex
-              w-full
-              max-w-[340px]
-              items-center
-              justify-between
-              rounded-full
+  className="
+    pointer-events-auto
+    relative
+    flex
+    w-full
+    max-w-[340px]
+    items-center
+    justify-between
+    rounded-full
 
-              border
-              border-white/60
+    border
+    border-white/60
 
-              bg-white/75
-              backdrop-blur-md
+    bg-white/75
+    backdrop-blur-md
 
-              px-2
-              py-2
+    px-2
+    py-2
 
-              shadow-[0_12px_40px_rgba(15,23,42,0.10),0_2px_10px_rgba(15,23,42,0.06)]
-              overflow-hidden
-            "
-          >
+    shadow-[0_12px_40px_rgba(15,23,42,0.10),0_2px_10px_rgba(15,23,42,0.06)]
+    overflow-hidden
+    will-change-transform
+  "
+>
+
             {/* Top glass reflection */}
             <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/90 to-transparent" />
 
@@ -140,17 +142,17 @@ export default function FloatingMobileNav() {
                     className="relative z-10"
                   >
                     <Image
-                      src={item.iconSrc}
-                      alt={item.label}
-                      width={21}
-                      height={21}
-                      unoptimized
-                      className={`transition-all duration-300 ${
-                        active
-                          ? "opacity-100 grayscale-0"
-                          : "opacity-45 grayscale"
-                      }`}
-                    />
+  src={item.iconSrc}
+  alt={item.label}
+  width={21}
+  height={21}
+  className={`transition-all duration-300 ${
+    active
+      ? "opacity-100 grayscale-0"
+      : "opacity-45 grayscale"
+  }`}
+/>
+
                   </motion.div>
                 </button>
               );
