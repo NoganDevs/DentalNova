@@ -118,7 +118,7 @@ export default function ServicesHeaderSection() {
   className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-200"
 >
        <Image
-          src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1200&auto=format&fit=crop" 
+          src="/image-1.avif" 
           alt="Porcelain Veneers"
           className="w-full h-full object-cover object-center"
           width={800}
