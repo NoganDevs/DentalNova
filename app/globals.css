@@ -79,3 +79,23 @@
   border: 1px solid hsl(var(--border-clean));
   border-radius: 12px;
 }
+
+
+
+@media (max-width: 768px) {
+.hero-section,
+.tooth-scene,
+.tooth-wrapper {
+  perspective: none;
+  transform-style: flat;
+}
+.tooth-wrapper {
+  filter: none !important;
+}
+.hero-badge,
+.secondary-button,
+.navbar-section {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+}
