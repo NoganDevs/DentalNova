@@ -363,7 +363,7 @@ export default function Home() {
             {isMobileMenuOpen && (
               <div className="mobile-menu-drawer mobile-menu-drawer-open" style={{ pointerEvents: "auto" }}>
                 <div className="mobile-menu-links">
-                  {links.map((link, index) => {
+                  {navLinks.map((link, index) => {
   return (
     <a
       key={index}
@@ -623,7 +623,7 @@ export default function Home() {
           </div>
 
         </div>
-
+          </div>
         <div className="hero-bottom-fade"></div>
       </section>
 
