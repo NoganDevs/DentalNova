@@ -27,32 +27,7 @@ useEffect(() => {
   const mouseYVelocity = useVelocity(mouseY);
 
   // Return static hardware styles immediately if on a mobile viewport
-  if (isMobile) {
-    return {
-      ref,
-      style: {
-        rotateX: 0,
-        rotateY: 0,
-        rotateZ: 0,
-        x: 0,
-        y: 0,
-        scaleX: 1,
-        scaleY: 1,
-        filter: "drop-shadow(0px 14px 22px rgba(15, 23, 42, 0.28))",
-        willChange: "transform",
-      },
-      glow: { x: 0, y: 0 },
-      entrance: {
-        initial: { opacity: 0, y: 20 },
-        animate: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.3, ease: "easeOut" },
-        },
-      },
-      events: {},
-    };
-  }
+  
 
   // Idle floating targets — layered sines so it doesn't feel robotic
   const floatX = useMotionValue(0);
@@ -186,7 +161,6 @@ useEffect(() => {
 },
     glow: { x: glowX, y: glowY },
     entrance: {
-          entrance: {
       initial: { opacity: 0, scale: 0.98, y: 15 },
       animate: {
         opacity: 1,
