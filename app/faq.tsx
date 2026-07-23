@@ -4,22 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, ArrowUpRight, Disc } from 'lucide-react';
 import type { Transition } from "framer-motion";
-import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
 
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  style: ['normal', 'italic'],
-  variable: '--font-cormorant',
-  display: 'swap',
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-jakarta',
-  display: 'swap',
-});
 const faqData = [
   {
     id: '01',
