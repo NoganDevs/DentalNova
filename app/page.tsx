@@ -363,15 +363,18 @@ export default function Home() {
             {isMobileMenuOpen && (
               <div className="mobile-menu-drawer mobile-menu-drawer-open" style={{ pointerEvents: "auto" }}>
                 <div className="mobile-menu-links">
-                  {navLinks.map((link, index) => (
-                    
-                      key={index}
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {link.label}
-                    </a>
-                  ))}
+                  {links.map((link, index) => {
+  return (
+    <a
+      key={index}
+      href={link.href}
+      onClick={() => setIsMobileMenuOpen(false)}
+    >
+      {link.label}
+    </a>
+  )
+})}
+
                   <button 
                     className="mobile-booking-btn"
                     onClick={() => setIsMobileMenuOpen(false)}
