@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans, Instrument_Serif } from 'next/font/google';
 import { VisitorTracker } from './components/VisitorTracker';
 import React, { Suspense } from "react";
 
+<link rel="preload" as="image" href="/tooth.png" fetchpriority="high" />
+
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   display: "swap",
