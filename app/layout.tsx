@@ -1,20 +1,70 @@
 // app/layout.tsx
-import { Plus_Jakarta_Sans, Instrument_Serif } from 'next/font/google';
+
 import { VisitorTracker } from './components/VisitorTracker';
 import React, { Suspense } from "react";
+import React, { Suspense } from "react";
+import { 
+  Plus_Jakarta_Sans, 
+  Syne, 
+  Playfair_Display, 
+  Sora, 
+  Instrument_Serif, 
+  Cormorant_Garamond, 
+  Inter 
+} from 'next/font/google';
+import localFont from 'next/font/local'; // For Cabinet Grotesk
+import { VisitorTracker } from './components/VisitorTracker';
+import './globals.css'; // Make sure your globals are imported
 
-<link rel="preload" as="image" href="/tooth.png" fetchPriority="high" />
-
+// 1. Combine all Plus Jakarta Sans instances into ONE variable font
 const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  display: "swap",
+  subsets: ['latin'],
+  variable: '--font-jakarta',
+  display: 'swap', // No weights specified means it loads the tiny variable version!
+});
+
+const syne = Syne({
+  subsets: ['latin'],
+  weight: ['600', '700', '800'],
+  variable: '--font-syne',
+  display: 'swap',
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  style: ['normal', 'italic'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
+const sora = Sora({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  variable: '--font-sora',
+  display: 'swap',
 });
 
 const serif = Instrument_Serif({
   weight: "400",
   subsets: ["latin"],
-  display: "swap",
+  variable: '--font-serif',
+  display: 'swap',
 });
+
+const cormorant = Cormorant_Garamond({
+  weight: ['400', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-cormorant',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter', // Changed to variable font for performance
+  display: 'swap',
+});
+
 import type { Metadata, Viewport } from "next";
 
 
