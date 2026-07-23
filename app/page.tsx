@@ -421,11 +421,17 @@ export default function Home() {
             animate="visible"
             className="hero-left"
           >
-            <motion.div variants={itemVariants} className="hero-badge">
-              <p>Trusted Modern Dental Clinic</p>
-            </motion.div>
+            {isMobile ? (
+              <div className="hero-badge hero-fade-in">
+                <p>Trusted Modern Dental Clinic</p>
+              </div>
+            ) : (
+              <motion.div variants={itemVariants} className="hero-badge">
+                <p>Trusted Modern Dental Clinic</p>
+              </motion.div>
+            )}
 
-            <motion.div variants={itemVariants} className="hero-heading">
+            <motion.div variants={isMobile ? undefined : itemVariants} className={isMobile ? "hero-heading hero-fade-in" : "hero-heading"}>
               <h2>
                 Creating
                 <br />
@@ -449,32 +455,44 @@ export default function Home() {
     block: "start",
   });
 }}
-               className="primary-button" {...primaryButtonProps}>
+               <motion.button
+                onClick={() => {
+                  window.history.replaceState(null, "", "#booking");
+                  document.getElementById("booking")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
+                className="primary-button"
+                {...(isMobile ? {} : primaryButtonProps)}
+              >
                 Book Appointment
               </motion.button>
               <motion.button 
                 onClick={() => {
-  window.history.replaceState(null, "", "#services");
-  document.getElementById("services")?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-}}
-                className="secondary-button" {...secondaryButtonProps}>
+                  window.history.replaceState(null, "", "#services");
+                  document.getElementById("services")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
+                className="secondary-button"
+                {...(isMobile ? {} : secondaryButtonProps)}
+              >
                 Explore Services
               </motion.button>
             </motion.div>
 
             <motion.div variants={statsContainerVariants} className="hero-stats">
-              <motion.div variants={statItemVariants} className="stat-card" {...statCardProps}>
+              <motion.div variants={statItemVariants} className="stat-card" {...(isMobile ? {} : statCardProps)}>
                 <AnimatedCounter value={15} suffix="+" />
                 <p>Years Experience</p>
               </motion.div>
-              <motion.div variants={statItemVariants} className="stat-card" {...statCardProps}>
+              <motion.div variants={statItemVariants} className="stat-card" {...(isMobile ? {} : statCardProps)}>
                 <AnimatedCounter value={8} suffix="K+" />
                 <p>Happy Patients</p>
               </motion.div>
-              <motion.div variants={statItemVariants} className="stat-card" {...statCardProps}>
+              <motion.div variants={statItemVariants} className="stat-card" {...(isMobile ? {} : statCardProps)}>
                 <AnimatedCounter value={4.9} suffix="★" decimals={1} />
                 <p>Average Rating</p>
               </motion.div>
