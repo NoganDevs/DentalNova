@@ -612,3 +612,12 @@
     gap: 1.25rem;
   }
 }
+.mobile-menu-drawer {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.25s ease-out, opacity 0.25s ease-out;
+}
+.mobile-menu-drawer-open {
+  transform: translateY(0);
+  opacity: 1;
+}
