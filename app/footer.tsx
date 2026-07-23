@@ -50,20 +50,19 @@ const treatmentOptions = [
   'Full Arch Restoration',
 ];
 
+import { inter } from './layout';
+
 export default function DentalNovaHeader() {
   // --- HOOKS MUST SIT RIGHT HERE INSIDE THE COMPONENT BODY ---
   const [selectedTreatment, setSelectedTreatment] = useState<string>(treatmentOptions[0]);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
   };
   return (
     <>
-
-
-      <section id="booking" className="w-full bg-[#f8faf8] text-[#0f172a] font-inter pt-32 pb-24 px-6 sm:px-12 lg:px-20 select-none overflow-hidden">
+      <section id="booking" className={`${inter.variable} w-full bg-[#f8faf8] text-[#0f172a] font-inter pt-32 pb-24 px-6 sm:px-12 lg:px-20 select-none overflow-hidden`}>
         <motion.div
           variants={containerVariants}
           initial="hidden"
