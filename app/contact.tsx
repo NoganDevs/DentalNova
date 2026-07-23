@@ -296,6 +296,7 @@ export default function DentalNovaContactForm() {
                 <div className="relative">
                   <motion.label
                     initial={false}
+                    htmlFor="fullName"
                     animate={{
                       y: focusedInput === 'fullName' || formData.fullName ? -14 : 12,
                       scale: focusedInput === 'fullName' || formData.fullName ? 0.78 : 1,
@@ -308,6 +309,8 @@ export default function DentalNovaContactForm() {
                   </motion.label>
                   
                   <input
+                    id="fullName"
+                    name="fullName"
                     required
                     type="text"
                     value={formData.fullName}
