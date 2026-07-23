@@ -619,13 +619,10 @@ export default function Home() {
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.15 }} className="spark spark-1"></motion.div>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.25 }} className="spark spark-2"></motion.div>
             </motion.div>
-
           </div>
         </div>
-      </div>
-
-      <div className="hero-bottom-fade"></div>
-    </section>
+        <div className="hero-bottom-fade"></div>
+      </section>
 
 
   
