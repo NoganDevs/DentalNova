@@ -417,12 +417,13 @@
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid hsl(var(--border-clean));
   }
-
-  .hero-section {
+.hero-section {
     max-height: none;
     height: auto;
     justify-content: flex-start;
     overflow: visible;
+    perspective: none;
+    transform-style: flat;
   }
 
   .hero-container {
