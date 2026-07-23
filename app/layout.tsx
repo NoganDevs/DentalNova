@@ -2,7 +2,6 @@
 
 import { VisitorTracker } from './components/VisitorTracker';
 import React, { Suspense } from "react";
-import React, { Suspense } from "react";
 import { 
   Plus_Jakarta_Sans, 
   Syne, 
@@ -12,8 +11,6 @@ import {
   Cormorant_Garamond, 
   Inter 
 } from 'next/font/google';
-import localFont from 'next/font/local'; // For Cabinet Grotesk
-import { VisitorTracker } from './components/VisitorTracker';
 import './globals.css'; // Make sure your globals are imported
 
 // 1. Combine all Plus Jakarta Sans instances into ONE variable font
