@@ -29,7 +29,7 @@ const DentalReviewsSection = dynamic(() => import("./reviews"), {
   ssr: false
 });
 
-const DentalReviewsSection = dynamic(() => import("./PrivacyOverlay"), {
+const PrivacyOverlay = dynamic(() => import("./PrivacyOverlay"), {
   loading: () => <div className="h-[400px] w-full animate-pulse bg-slate-50" />,
   ssr: false
 });
