@@ -224,16 +224,26 @@ const ICON_VOICE = '<img src="icons/voice.png" alt="" style="width:20px;height:2
     }
   }
 
-  sendBtn?.addEventListener('click', () => {
+    // mousedown/touchstart, not click: click can fire after chat.js's
+  // own click handler already ran sendMessage(), which clears the
+  // textarea synchronously before its first await. That made this
+  // check see an empty box and start voice mode right after a
+  // normal text send. mousedown always fires before click, so we
+  // read the real hasText state before anything can clear it.
+  const handleSendPress = (event) => {
 
     const hasText =
       textarea?.value.trim().length > 0;
 
     if (hasText || !voiceChat) return;
 
-    isRecording ? stopRecording() : startRecording();
-  });
+    event.preventDefault();
 
+    isRecording ? stopRecording() : startRecording();
+  };
+
+  sendBtn?.addEventListener('mousedown', handleSendPress);
+  sendBtn?.addEventListener('touchstart', handleSendPress, { passive: false });
 
   /* ================================
      INITIAL STATE
