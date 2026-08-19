@@ -22,9 +22,9 @@ const attachment = capabilities.attachments?.enabled === true;
   const sendBtn = document.getElementById('chat-send-btn');
   const sendIcon = sendBtn?.querySelector('.send-icon');
 
-  const ICON_SEND = '<img src="icons/send.png" alt="" style="width:20px;height:20px;object-fit:contain;display:block;">';
+ const ICON_SEND = '<img src="icons/send.png" alt="" style="width:20px;height:20px;object-fit:contain;display:block;">';
 
-const ICON_VOICE = '<img src="icons/voice.png" alt="" style="width:20px;height:20px;object-fit:contain;display:block;">';
+const ICON_VOICE = '<img src="icons/voice.png" alt="" style="width:20px;height:20px;object-fit:contain;display:block;filter: none;" onload="this.style.filter = window.matchMedia(\'(prefers-color-scheme: dark)\').matches ? \'brightness(0) invert(1)\' : \'none\';">';
   const attachmentBtn = document.querySelector('.dock-btn');
 
 
