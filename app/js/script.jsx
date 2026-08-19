@@ -1,5 +1,4 @@
-if (typeof document !== 'undefined') {
-function initChatWidget() {
+document.addEventListener('DOMContentLoaded', () => {
 
   /* ================================
      CONFIGURATION
@@ -22,7 +21,7 @@ const attachment = capabilities.attachments?.enabled === true;
   const sendBtn = document.getElementById('chat-send-btn');
   const sendIcon = sendBtn?.querySelector('.send-icon');
 
- const ICON_SEND = '<img src="icons/send.png" alt="" style="width:20px;height:20px;object-fit:contain;display:block;">';
+  const ICON_SEND = '<img src="icons/send.png" alt="" style="width:20px;height:20px;object-fit:contain;display:block;">';
 
 const ICON_VOICE = '<img src="icons/voice.png" alt="" style="width:20px;height:20px;object-fit:contain;display:block;filter: none;" onload="this.style.filter = window.matchMedia(\'(prefers-color-scheme: dark)\').matches ? \'brightness(0) invert(1)\' : \'none\';">';
   const attachmentBtn = document.querySelector('.dock-btn');
@@ -230,21 +229,28 @@ const ICON_VOICE = '<img src="icons/voice.png" alt="" style="width:20px;height:2
   // check see an empty box and start voice mode right after a
   // normal text send. mousedown always fires before click, so we
   // read the real hasText state before anything can clear it.
-  const handleSendPress = (event) => {
+    // Snapshot whether there was text BEFORE the click fires, since
+  // chat.js's own click handler on this same button can run first
+  // and clear the textarea synchronously before this listener's
+  // turn. mousedown/touchstart always fire before click, so we
+  // capture the real state here — then decide on the actual click
+  // event itself (never preventDefault'd), so normal clicking,
+  // chat.js's send handler, and Enter-to-submit all stay untouched.
+  let hasTextAtPress = false;
 
-    const hasText =
-      textarea?.value.trim().length > 0;
-
-    if (hasText || !voiceChat) return;
-
-    event.preventDefault();
-
-    isRecording ? stopRecording() : startRecording();
+  const capturePressState = () => {
+    hasTextAtPress = textarea?.value.trim().length > 0;
   };
 
-  sendBtn?.addEventListener('mousedown', handleSendPress);
-  sendBtn?.addEventListener('touchstart', handleSendPress, { passive: false });
+  sendBtn?.addEventListener('mousedown', capturePressState);
+  sendBtn?.addEventListener('touchstart', capturePressState, { passive: true });
 
+  sendBtn?.addEventListener('click', () => {
+
+    if (hasTextAtPress || !voiceChat) return;
+
+    isRecording ? stopRecording() : startRecording();
+  });
   /* ================================
      INITIAL STATE
      ================================ */
@@ -269,26 +275,21 @@ const ICON_VOICE = '<img src="icons/voice.png" alt="" style="width:20px;height:2
     );
   }
 
+
   /* ================================
      WHITE ICON
      ================================ */
 
-}
 
-if (typeof document !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initChatWidget);
-  } else {
-    initChatWidget();
-  }
-}
-}
-if (typeof document !== 'undefined') {
-function initAttachmentPickerWidget() {
+
+});
+
+document.addEventListener('DOMContentLoaded', () => {
   const attachmentBtn = document.querySelector('.dock-btn');
   const inputCard = document.querySelector('.chat-input-card');
 
   if (!attachmentBtn || !inputCard) return;
+
   /* --------------------------------
      Attachment picker
      -------------------------------- */
@@ -785,13 +786,4 @@ window.addEventListener('ai:attachments-sent', () => {
   `;
 
   document.head.appendChild(style);
-}
-
-if (typeof document !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAttachmentPickerWidget);
-  } else {
-    initAttachmentPickerWidget();
-  }
-}
-}
+});
