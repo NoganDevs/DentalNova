@@ -62,7 +62,7 @@ const socialLinks = [
   { name: 'X', icon: '/icons/x.png', url: 'https://x.com' },
 ];
 
-import { inter } from './layout';
+
 
 export default function DentalNovaContactForm() {
   const [selectedTreatment, setSelectedTreatment] = useState<string>(treatmentOptions[0]);
