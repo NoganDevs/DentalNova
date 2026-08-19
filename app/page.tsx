@@ -10,6 +10,7 @@ import AnimatedCounter from "./components/AnimatedCounter";
 import FloatingMobileNav from "./components/FloatingMobileNav";
 import { useToothAnimation } from "./components/animations/animations";
 import PlaceholderNotice from "./components/overlay";
+import TransparentGlass from './TransparentGlass';
 
 // 2. DYNAMIC IMPORTS FOR LOWER SECTIONS (Next.js splits these into separate, lazy-loaded files)
 import dynamic from 'next/dynamic';
@@ -654,6 +655,7 @@ export default function Home() {
       <CosmeticDentistryFAQ />
       <FooterContactSection />
       <PrivacyOverlay />
+      <TransparentGlass />
       
 
     
