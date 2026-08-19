@@ -372,7 +372,7 @@ const AI_CONFIG = {
     trigger: "@@CONTACT_SUBMIT@@",
 
     delivery: {
-      enabled: false,
+      enabled: true,
 
       provider: "none",
 
