@@ -1,14 +1,26 @@
-// import PageTemplate from '@/components/TransparentGlass'; // add this line in page.tsx or layout.tsx, then render <TransparentGlass />
+// import TransparentGlass from '@/components/TransparentGlass'; // add this line in page.tsx or layout.tsx, then render <TransparentGlass />
 
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import './style.css';
-import AiConfig from './js/ai-config';
-import Chat from './js/chat';
-import Script from './js/script';
 
 export default function TransparentGlass() {
+  useEffect(() => {
+    // Dynamically imported so none of this ever runs on the server —
+    // only after the component has mounted in the browser, where
+    // `window` and `document` are guaranteed to exist.
+    //
+    // Order matters: ai-config sets window.AI_CONFIG, chat.js reads
+    // it and exposes window.sendVoiceMessage, script.js depends on
+    // both of those. Chaining .then() keeps that order guaranteed
+    // even though dynamic imports resolve asynchronously.
+    import('./js/ai-config')
+      .then(() => import('./js/chat'))
+      .then(() => import('./js/script'))
+      .catch(err => console.error('[TransparentGlass] Failed to load chat scripts:', err));
+  }, []);
+
   return (
     <>
       {/* Extension Launcher Component */}
@@ -101,10 +113,6 @@ export default function TransparentGlass() {
           </div>
         </footer>
       </div>
-
-      <AiConfig />
-      <Chat />
-      <Script />
     </>
   );
 }
