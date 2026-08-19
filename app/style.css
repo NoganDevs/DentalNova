@@ -1283,3 +1283,10 @@
     color: #ffffff !important;
   }
 }
+
+
+@media (prefers-color-scheme: dark) {
+  .chat-icon-voice {
+    filter: brightness(0) invert(1);
+  }
+}
