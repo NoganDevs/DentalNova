@@ -71,7 +71,12 @@ function isAttachmentsEnabled() {
 // (api/ai.js + js/ai-config.js sitting next to each other at the
 // project root).
 
-import AI_CONFIG from "../../../js/ai-config.js";
+// ❌ REMOVE THIS OLD RELATIVE PATH:
+// import AI_CONFIG from "../../../js/ai-config.js";
+
+//  REPLACE IT WITH THIS PATH ALIAS:
+import AI_CONFIG from "@/js/ai-config.js"; 
+
 
 
 // ============================================================
