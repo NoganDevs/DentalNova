@@ -60,22 +60,8 @@ function isAttachmentsEnabled() {
 }
 
 
-// ============================================================
-// BUSINESS CONFIG (server-side copy)
-// ============================================================
-//
-// Same public config file the browser loads via <script src>.
-// It holds no secrets (see the header comment at the top of that
-// file), so it's safe to also read here. Adjust this path if your
-// folder layout differs from the default template layout
-// (api/ai.js + js/ai-config.js sitting next to each other at the
-// project root).
+import AI_CONFIG from "../../js/ai-config.jsx";
 
-// ❌ REMOVE THIS OLD RELATIVE PATH:
-// import AI_CONFIG from "../../../js/ai-config.js";
-
-//  REPLACE IT WITH THIS PATH ALIAS:
-import AI_CONFIG from "@/js/ai-config.js"; 
 
 
 
