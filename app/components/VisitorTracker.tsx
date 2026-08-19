@@ -1,3 +1,4 @@
+// app/components/VisitorTracker.tsx
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -9,15 +10,18 @@ export function VisitorTracker() {
   const hasTracked = useRef(false);
 
   useEffect(() => {
-    // Prevent duplicate tracking on re-renders in React Strict Mode
+    // 1. ADD THIS GUARD: TypeScript now knows searchParams isn't null after this line.
+    if (!searchParams) return;
+
     if (hasTracked.current) return;
 
     const trackVisit = async () => {
-      // Double check to prevent racing calls inside event listeners
       if (hasTracked.current) return;
       hasTracked.current = true;
 
       const clientReferrer = document.referrer || '';
+      
+      // 2. SAFE ACCESS: Now that we checked if searchParams exists, get() is safe.
       const utmSource = searchParams.get('utm_source') || searchParams.get('ref');
 
       try {
@@ -35,7 +39,6 @@ export function VisitorTracker() {
       }
     };
 
-    // If page is already completely loaded, track after browser is idle
     if (document.readyState === 'complete') {
       if ('requestIdleCallback' in window) {
         window.requestIdleCallback(() => trackVisit());
@@ -43,7 +46,6 @@ export function VisitorTracker() {
         setTimeout(trackVisit, 0);
       }
     } else {
-      // Wait for the full window load event (images, CSS, subresources completely ready)
       const handleLoad = () => {
         if ('requestIdleCallback' in window) {
           window.requestIdleCallback(() => trackVisit());
@@ -51,9 +53,7 @@ export function VisitorTracker() {
           trackVisit();
         }
       };
-
       window.addEventListener('load', handleLoad, { once: true });
-
       return () => {
         window.removeEventListener('load', handleLoad);
       };
