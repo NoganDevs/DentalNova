@@ -224,25 +224,12 @@ const ICON_VOICE = '<img src="icons/voice.png" alt="" style="width:20px;height:2
     }
   }
 
-  // Snapshot whether there was text BEFORE the click fires, since
-  // chat.js's own click handler on this same button can run first
-  // and clear the textarea synchronously before this listener's
-  // turn. mousedown/touchstart always fire before click, so we
-  // capture the real state here — then decide on the actual click
-  // event itself (never preventDefault'd), so normal clicking,
-  // chat.js's send handler, and Enter-to-submit all stay untouched.
-  let hasTextAtPress = false;
-
-  const capturePressState = () => {
-    hasTextAtPress = textarea?.value.trim().length > 0;
-  };
-
-  sendBtn?.addEventListener('mousedown', capturePressState);
-  sendBtn?.addEventListener('touchstart', capturePressState, { passive: true });
-
   sendBtn?.addEventListener('click', () => {
 
-    if (hasTextAtPress || !voiceChat) return;
+    const hasText =
+      textarea?.value.trim().length > 0;
+
+    if (hasText || !voiceChat) return;
 
     isRecording ? stopRecording() : startRecording();
   });
