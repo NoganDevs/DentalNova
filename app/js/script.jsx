@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
+if (typeof document !== 'undefined') {
+function initChatWidget() {
 
   /* ================================
      CONFIGURATION
@@ -258,21 +259,26 @@ const attachment = capabilities.attachments?.enabled === true;
     );
   }
 
-
   /* ================================
      WHITE ICON
      ================================ */
 
+}
 
-
-});
-
-document.addEventListener('DOMContentLoaded', () => {
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initChatWidget);
+  } else {
+    initChatWidget();
+  }
+}
+}
+if (typeof document !== 'undefined') {
+function initAttachmentPickerWidget() {
   const attachmentBtn = document.querySelector('.dock-btn');
   const inputCard = document.querySelector('.chat-input-card');
 
   if (!attachmentBtn || !inputCard) return;
-
   /* --------------------------------
      Attachment picker
      -------------------------------- */
@@ -769,4 +775,13 @@ window.addEventListener('ai:attachments-sent', () => {
   `;
 
   document.head.appendChild(style);
-});
+}
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAttachmentPickerWidget);
+  } else {
+    initAttachmentPickerWidget();
+  }
+}
+}
