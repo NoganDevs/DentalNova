@@ -598,13 +598,6 @@ function getConfig() {
 // would let someone send arbitrarily large payloads to burn
 // CPU/bandwidth before you can reject them. Cap it explicitly.
 
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: "32mb"
-    }
-  }
-};
 
 
 // ============================================================
