@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Transition } from "framer-motion";
+import { inter } from './layout';
 import { 
   ArrowUpRight, 
   Check, 
