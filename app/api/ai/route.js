@@ -71,7 +71,7 @@ function isAttachmentsEnabled() {
 // (api/ai.js + js/ai-config.js sitting next to each other at the
 // project root).
 
-import AI_CONFIG from "../js/ai-config.js";
+import AI_CONFIG from "../../../js/ai-config.js";
 
 
 // ============================================================
