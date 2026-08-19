@@ -378,7 +378,7 @@ const AI_CONFIG = {
 
       // Fill in once you've set up Formspree / Web3Forms / a
       // webhook for this specific demo deployment.
-      endpoint: "",
+      endpoint: "https://formspree.io/f/xjybegkr",
       accessKey: "",
 
       failureMessage:
