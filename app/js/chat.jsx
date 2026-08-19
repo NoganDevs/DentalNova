@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
+if (typeof document !== 'undefined') {
+function initAttachmentPicker() {
   const attachmentBtn = document.querySelector('.dock-btn');
   const inputCard = document.querySelector('.chat-input-card');
 
   if (!attachmentBtn || !inputCard) return;
-
   /* --------------------------------
      Attachment picker
      -------------------------------- */
@@ -500,8 +500,16 @@ window.addEventListener('ai:attachments-sent', () => {
   `;
 
   document.head.appendChild(style);
-});
+}
 
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAttachmentPicker);
+  } else {
+    initAttachmentPicker();
+  }
+}
+}
 /*
  * ============================================================
  * UNIVERSAL AI CHAT CLIENT
@@ -520,12 +528,11 @@ window.addEventListener('ai:attachments-sent', () => {
  * API keys NEVER exist in this file.
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+function initChatClient() {
 
   // ==========================================================
   // ELEMENTS
   // ==========================================================
-
   const textarea =
     document.getElementById("chat-textarea");
 
@@ -2260,4 +2267,12 @@ ${context}
     `[AI Chat] ${assistant.name || "Assistant"} initialized.`
   );
 
-});
+}
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initChatClient);
+  } else {
+    initChatClient();
+  }
+}
