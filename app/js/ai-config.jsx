@@ -374,7 +374,7 @@ const AI_CONFIG = {
     delivery: {
       enabled: true,
 
-      provider: "none",
+      provider: "formspree",
 
       // Fill in once you've set up Formspree / Web3Forms / a
       // webhook for this specific demo deployment.
