@@ -30,7 +30,7 @@ const AI_CONFIG = {
 
     language: "auto",
 
-    maxHistoryMessages: 20,
+    maxHistoryMessages: 50,
 
     welcomeMessage: "Hey! 👋 This is a live demo of an AI chatbot template. Ask me about pricing, how setup works, what's customizable, or try the voice/image features. Where do you want to start?"
   },
