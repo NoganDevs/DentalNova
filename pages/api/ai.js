@@ -60,7 +60,7 @@ function isAttachmentsEnabled() {
 }
 
 
-import AI_CONFIG from "../../js/ai-config.jsx";
+import AI_CONFIG from "../../app/js/ai-config.jsx";
 
 
 
