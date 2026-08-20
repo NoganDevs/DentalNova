@@ -224,12 +224,15 @@ const ICON_VOICE = '<img src="icons/voice.png" alt="" style="width:20px;height:2
     }
   }
 
-  sendBtn?.addEventListener('click', () => {
+  let hadTextBeforeClick = false;
 
-    const hasText =
-      textarea?.value.trim().length > 0;
+sendBtn?.addEventListener('pointerdown', () => {
+  hadTextBeforeClick = textarea?.value.trim().length > 0;
+});
 
-    if (hasText || !voiceChat) return;
+sendBtn?.addEventListener('click', () => {
+
+    if (hadTextBeforeClick || !voiceChat) return;
 
     isRecording ? stopRecording() : startRecording();
   });
