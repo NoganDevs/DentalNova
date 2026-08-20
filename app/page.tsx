@@ -655,7 +655,7 @@ export default function Home() {
       <CosmeticDentistryFAQ />
       <FooterContactSection />
       <PrivacyOverlay />
-      <TransparentGlass />
+      <NeoBrutalism />
       
 
     
